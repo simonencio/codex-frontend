@@ -1,0 +1,16 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Categorie</h1> <!-- Changed from Gestione Episodi to Gestione Categorie -->
+    <app-lista-categorie (categoriaSelected)="handleCategoriaSelected($event)"></app-lista-categorie>
+    <!-- Changed from app-lista-episodi to app-lista-categorie -->
+    <div class="button-container my-3">
+        <button class="btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Categoria</button>
+        <!-- Changed from Aggiungi Episodio to Aggiungi Categoria -->
+    </div>
+    <hr>
+    <app-aggiungi-categorie *ngIf="showAggiungi"></app-aggiungi-categorie>
+    <!-- Changed from app-aggiungi-episodi to app-aggiungi-categorie -->
+    <app-modifica-categorie *ngIf="showModifica" [categoria]="selectedCategoria"></app-modifica-categorie>
+    <!-- Changed from app-modifica-episodi to app-modifica-categorie and episodio to categoria -->
+    <app-cancella-categorie *ngIf="showCancella" [categoria]="selectedCategoria"></app-cancella-categorie>
+    <!-- Changed from app-cancella-episodi to app-cancella-categorie -->
+</div>

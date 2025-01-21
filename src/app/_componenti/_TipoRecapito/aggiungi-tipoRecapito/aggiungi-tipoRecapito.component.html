@@ -1,0 +1,21 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Tipo Recapito</h2> <!-- Updated title -->
+            <form (ngSubmit)="aggiungiValore()" #tipoRecapitoForm="ngForm">
+                <!-- Changed from tipologiaForm to tipoRecapitoForm -->
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Inserisci nome" [(ngModel)]="newNome"
+                        name="nome" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="submit" [disabled]="tipoRecapitoForm.invalid">Aggiungi
+                        Tipo Recapito</button> <!-- Changed button text -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

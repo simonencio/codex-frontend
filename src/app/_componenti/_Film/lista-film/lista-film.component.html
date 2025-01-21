@@ -1,0 +1,45 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>idCategoria</th>
+            <th>Titolo</th>
+            <th>Descrizione</th>
+            <th>Durata (minuti)</th>
+            <th>Regista</th>
+            <th>Attori</th>
+            <th>Anno di Uscita</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let film of dati">
+            <td>{{film.idFilm}}</td>
+            <td>{{film.idCategoria}}</td>
+            <td>{{film.titolo}}</td>
+            <td>{{film.descrizione}}</td>
+            <td>{{film.durata}}</td>
+            <td>{{film.regista}}</td>
+            <td>{{film.attori}}</td>
+            <td>{{film.anno}}</td>
+
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editFilm(film)"></i>
+                <i class="fas fa-trash" (click)="deleteFilm(film.idFilm)"></i>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID</th>
+            <th>idCategoria</th>
+            <th>Titolo</th>
+            <th>Descrizione</th>
+            <th>Durata (minuti)</th>
+            <th>Regista</th>
+            <th>Attori</th>
+            <th>Anno di Uscita</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

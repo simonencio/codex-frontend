@@ -1,0 +1,22 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Tipologia Indirizzo</h2>
+            <!-- Changed from Aggiungi Categoria to Aggiungi Tipologia Indirizzo -->
+            <form (ngSubmit)="aggiungiValore()" #tipologiaForm="ngForm">
+                <!-- Changed from categoriaForm to tipologiaForm -->
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Inserisci nome" [(ngModel)]="newNome"
+                        name="nome" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="submit" [disabled]="tipologiaForm.invalid">Aggiungi
+                        Tipologia Indirizzo</button> <!-- Changed button text -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

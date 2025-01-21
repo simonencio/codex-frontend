@@ -1,0 +1,77 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Film</h2>
+            <form (ngSubmit)="aggiungiValore()" #filmForm="ngForm">
+                <div class="mb-3">
+                    <label for="categoriaSelect" class="form-label">Seleziona Categoria</label>
+                    <select id="categoriaSelect" class="form-select" [(ngModel)]="newIdCategoria" name="newIdCategoria">
+                        <option *ngFor="let categoria of categorie" [value]="categoria.idCategoria">
+                            {{ categoria.idCategoria }} | {{ categoria.nome }}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="titolo" class="form-label">Titolo</label>
+                    <input type="text" id="titolo" class="form-control" placeholder="Inserisci titolo"
+                        [(ngModel)]="newTitolo" name="titolo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descrizione" class="form-label">Descrizione</label>
+                    <input type="text" id="descrizione" class="form-control" placeholder="Inserisci descrizione"
+                        [(ngModel)]="newDescrizione" name="descrizione" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="durata" class="form-label">Durata (minuti)</label>
+                    <input type="number" id="durata" class="form-control" placeholder="Inserisci durata in minuti"
+                        [(ngModel)]="newDurata" name="durata" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="regista" class="form-label">Regista</label>
+                    <input type="text" id="regista" class="form-control" placeholder="Inserisci nome del regista"
+                        [(ngModel)]="newRegista" name="regista" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="attori" class="form-label">Attori</label>
+                    <input type="text" id="attori" class="form-control" placeholder="Inserisci nomi degli attori"
+                        [(ngModel)]="newAttori" name="attori" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="anno" class="form-label">Anno di Uscita</label>
+                    <input type="number" id="anno" class="form-control" placeholder="Inserisci anno di uscita"
+                        [(ngModel)]="newAnno" name="anno" required>
+                </div>
+
+                <!-- File input for video -->
+                <div class="mb-3">
+                    <label for="videoFile" class="form-label">Carica Filmato (video)</label>
+                    <input type="file" id="videoFile" class="form-control" (change)="onVideoFileChange($event)"
+                        required>
+                </div>
+
+                <!-- File input for locandina -->
+                <div class="mb-3">
+                    <label for="locandina" class="form-label">Carica Locandina (immagine)</label>
+                    <input type="file" id="locandina" class="form-control" (change)="onLocandinaFileChange($event)"
+                        required>
+                </div>
+
+                <!-- New File input for film -->
+                <div class="mb-3">
+                    <label for="filmFile" class="form-label">Carica Film (film.mp4)</label>
+                    <input type="file" id="filmFile" class="form-control" (change)="onFilmFileChange($event)"
+                        accept=".mp4" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="submit">Aggiungi Film</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

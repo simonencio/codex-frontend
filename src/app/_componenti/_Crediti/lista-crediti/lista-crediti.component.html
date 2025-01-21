@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID Credito</th> <!-- Changed from ID Tipo Recapito to ID Credito -->
+            <th>ID Contatto</th> <!-- Added ID Contatto column -->
+            <th>Contatto</th> <!-- New column for displaying the full name of the contact -->
+            <th>Credito</th> <!-- Changed from Nome to Credito -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let credito of dati"> <!-- Changed from tipologia to credito -->
+            <td>{{ credito.idCredito }}</td> <!-- Changed from idTipoRecapito to idCredito -->
+            <td>{{ credito.idContatto }}</td> <!-- Added display for idContatto -->
+            <td>{{ getContattoName(credito.idContatto) }}</td> <!-- Displaying nome and cognome -->
+            <td>{{ credito.credito }}</td> <!-- Changed from nome to credito -->
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editCredito(credito)"></i>
+                <!-- Changed from editTipologia to editCredito -->
+                <i class="fas fa-trash" (click)="deleteCredito(credito.idCredito)"></i>
+                <!-- Changed from deleteTipologia to deleteCredito -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID Credito</th> <!-- Changed from ID Tipo Recapito to ID Credito -->
+            <th>ID Contatto</th> <!-- Added ID Contatto column -->
+            <th>Contatto</th> <!-- New column for displaying the full name of the contact -->
+            <th>Credito</th> <!-- Changed from Nome to Credito -->
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

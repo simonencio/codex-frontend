@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID Tipo Recapito</th> <!-- Changed from ID Tipologia Indirizzo to ID Tipo Recapito -->
+            <th>Nome</th> <!-- Kept as Nome -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tipologia of dati"> <!-- Changed from categoria to tipologia -->
+            <td>{{ tipologia.idTipoRecapito }}</td> <!-- Changed from idTipologiaIndirizzo to idTipoRecapito -->
+            <td>{{ tipologia.nome }}</td> <!-- Kept as nome -->
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editTipologia(tipologia)"></i>
+                <!-- Changed from editCategoria to editTipologia -->
+                <i class="fas fa-trash" (click)="deleteTipologia(tipologia.idTipoRecapito)"></i>
+                <!-- Changed from deleteCategoria to deleteTipologia -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID Tipo Recapito</th> <!-- Changed from ID Tipologia Indirizzo to ID Tipo Recapito -->
+            <th>Nome</th> <!-- Kept as Nome -->
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

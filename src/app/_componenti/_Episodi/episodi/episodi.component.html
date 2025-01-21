@@ -1,0 +1,16 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Episodi</h1> <!-- Changed from Gestione Film to Gestione Episodi -->
+    <app-lista-episodi (episodioSelected)="handleEpisodioSelected($event)"></app-lista-episodi>
+    <!-- Changed from app-lista-film to app-lista-episodi -->
+    <div class="button-container my-3">
+        <button class="btn  mx-2" (click)="displayComponent('aggiungi')">Aggiungi Episodio</button>
+        <!-- Changed from Aggiungi Film to Aggiungi Episodio -->
+    </div>
+    <hr>
+    <app-aggiungi-episodi *ngIf="showAggiungi"></app-aggiungi-episodi>
+    <!-- Changed from app-aggiungi-film to app-aggiungi-episodio -->
+    <app-modifica-episodi *ngIf="showModifica" [episodio]="selectedEpisodio"></app-modifica-episodi>
+    <!-- Changed from app-modifica-film to app-modifica-episodio and film to episodio -->
+    <app-cancella-episodi *ngIf="showCancella" [episodio]="selectedEpisodio"></app-cancella-episodi>
+    <!-- Added a line for deleting episodes -->
+</div>

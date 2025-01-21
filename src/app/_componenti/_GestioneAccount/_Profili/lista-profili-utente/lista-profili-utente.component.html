@@ -1,0 +1,34 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Profilo</th>
+                <th>ID Contatto</th>
+                <th>Contatto</th>
+                <th>Nome</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let profilo of dati">
+                <td>{{ profilo.idProfilo }}</td>
+                <td>{{ profilo.idContatto }}</td>
+                <td>{{ getContattoName(profilo.idContatto) }}</td>
+                <td>{{ profilo.nome }}</td>
+                <td>
+                    <i class="fas fa-edit mx-2" (click)="editProfilo(profilo)"></i>
+                    <i class="fas fa-trash" (click)="deleteProfilo(profilo.idProfilo)"></i>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID Profilo</th>
+                <th>ID Contatto</th>
+                <th>Contatto</th>
+                <th>Nome</th>
+                <th>Actions</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

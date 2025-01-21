@@ -1,0 +1,22 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Modifica Categoria</h2>
+            <!-- Changed from Modifica Episodio to Modifica Categoria -->
+            <form>
+                <div class="mb-3">
+                    <label for="newNome" class="form-label">Nuovo Nome</label>
+                    <input type="text" id="newNome" class="form-control" placeholder="Inserisci nuovo nome"
+                        [(ngModel)]="newNome" name="newNome"> <!-- Changed from newTitolo to newNome -->
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="button" (click)="categoria && modificaValore( 
+                        categoria.idCategoria, 
+                        newNome
+                    )">Modifica Categoria</button> <!-- Changed from Modifica Episodio to Modifica Categoria -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

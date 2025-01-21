@@ -1,0 +1,23 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Modifica Tipologia Indirizzo</h2>
+            <!-- Changed from Modifica Categoria to Modifica Tipologia Indirizzo -->
+            <form>
+                <div class="mb-3">
+                    <label for="newNome" class="form-label">Nuovo Nome</label>
+                    <input type="text" id="newNome" class="form-control" placeholder="Inserisci nuovo nome"
+                        [(ngModel)]="newNome" name="newNome"> <!-- Kept as newNome -->
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="button" (click)="tipologia && modificaValore( 
+                        tipologia.idTipologiaIndirizzo, 
+                        newNome
+                    )">Modifica Tipologia Indirizzo</button>
+                    <!-- Changed from Modifica Categoria to Modifica Tipologia Indirizzo -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

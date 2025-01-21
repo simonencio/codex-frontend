@@ -1,0 +1,59 @@
+table {
+    width: 80%;
+    margin: 100px auto; // Center the table and add margin-top
+    border-collapse: collapse;
+
+    thead,
+    tbody,
+    tfoot {
+        void {
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr {
+
+            th,
+            td {
+                text-align: left;
+                padding: 8px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+
+            &:nth-child(even) {
+                background-color: #fafafa;
+            }
+
+            &:last-child {
+                td {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            th {
+                background-color: #f2f2f2;
+            }
+        }
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

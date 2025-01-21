@@ -1,0 +1,23 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Indirizzi</h1>
+    <!-- Changed from Gestione Tipologie Indirizzi to Gestione Indirizzi -->
+
+    <app-lista-indirizzi-utente (indirizzoSelected)="handleIndirizzoSelected($event)"></app-lista-indirizzi-utente>
+    <!-- Changed from app-lista-tipologieIndirizzi to app-lista-indirizzi -->
+
+    <div class="button-container my-3">
+        <button class="btn custom-btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Indirizzo</button>
+        <!-- Changed from Aggiungi Tipologia Indirizzo to Aggiungi Indirizzo -->
+    </div>
+
+    <hr>
+
+    <app-aggiungi-indirizzi-utente *ngIf="showAggiungi"></app-aggiungi-indirizzi-utente>
+    <!-- Changed from app-aggiungi-tipologieIndirizzi to app-aggiungi-indirizzi -->
+
+    <app-modifica-Indirizzi-utente *ngIf="showModifica" [indirizzo]="selectedIndirizzo"></app-modifica-Indirizzi-utente>
+    <!-- Changed from app-modifica-tipologieIndirizzi to app-modifica-indirizzi and tipologia to indirizzo -->
+
+    <app-cancella-Indirizzi-utente *ngIf="showCancella" [indirizzo]="selectedIndirizzo"></app-cancella-Indirizzi-utente>
+    <!-- Changed from app-cancella-tipologieIndirizzi to app-cancella-indirizzi -->
+</div>

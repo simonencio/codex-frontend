@@ -1,0 +1,36 @@
+.container {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.btn {
+    margin: 20px;
+    height: 50px;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    /* Button background color */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* Remove default border */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-weight: bold;
+    /* Make the font bold */
+}
+
+.custom-btn:hover {
+    color: white;
+    /* Text color on hover */
+}
+
+.dark-background {
+    background-color: #121212;
+    /* Dark background color */
+    color: #ffffff;
+    /* Light text color for contrast */
+    min-height: 100vh;
+    /* Ensure it covers the full height of the viewport */
+}

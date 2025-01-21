@@ -1,0 +1,99 @@
+<div class="container d-flex justify-content-center align-items-center" style="margin-top: 100px; margin-bottom: 50px;">
+    <form [formGroup]="anagraficaForm" (ngSubmit)="onSubmit()" class="text-center bg-white"
+        style="max-width: 800px; width: 90%; border: 2px solid black; padding: 40px; border-radius: 20px;">
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-6"> <!-- First column -->
+                <label for="nome" class="form-label">Nome:</label>
+                <input id="nome" formControlName="nome" class="form-control" style="height: 45px;" required>
+                <div *ngIf="anagraficaForm.get('nome')?.invalid && anagraficaForm.get('nome')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('nome')?.errors?.['required']">Nome è richiesto.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6"> <!-- Second column -->
+                <label for="cognome" class="form-label">Cognome:</label>
+                <input id="cognome" formControlName="cognome" class="form-control" style="height: 45px;" required>
+                <div *ngIf="anagraficaForm.get('cognome')?.invalid && anagraficaForm.get('cognome')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('cognome')?.errors?.['required']">Cognome è richiesto.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-6">
+                <label for="sesso" class="form-label">Sesso:</label>
+                <select id="sesso" formControlName="sesso" class="form-control" style="height: 45px;" required>
+                    <option value="">Seleziona</option>
+                    <option value="M">Maschio</option>
+                    <option value="F">Femmina</option>
+                </select>
+                <div *ngIf="anagraficaForm.get('sesso')?.invalid && anagraficaForm.get('sesso')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('sesso')?.errors?.['required']">Sesso è richiesto.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6"> <!-- Second column -->
+                <label for="dataNascita" class="form-label">Data di Nascita:</label>
+                <input id="dataNascita" type="date" formControlName="dataNascita" class="form-control"
+                    style="height: 45px;" required>
+                <div *ngIf="anagraficaForm.get('dataNascita')?.invalid && anagraficaForm.get('dataNascita')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('dataNascita')?.errors?.['required']">Data di Nascita è
+                        richiesta.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-6"> <!-- Second column -->
+                <label for="cittaNascita" class="form-label">Città di Nascita:</label>
+                <input id="cittaNascita" [ngbTypeahead]="searchCittaNascita" formControlName="cittaNascita"
+                    (selectItem)="onCitySelect($event)" class="form-control" style="height: 45px;" required>
+                <div *ngIf="anagraficaForm.get('cittaNascita')?.invalid && anagraficaForm.get('cittaNascita')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('cittaNascita')?.errors?.['required']">Città di Nascita è
+                        richiesta.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6"> <!-- First column -->
+                <label for="codiceFiscale" class="form-label">Codice Fiscale:</label>
+                <input id="codiceFiscale" formControlName="codiceFiscale" class="form-control" style="height: 45px;"
+                    required>
+                <div *ngIf="anagraficaForm.get('codiceFiscale')?.invalid && anagraficaForm.get('codiceFiscale')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('codiceFiscale')?.errors?.['required']">Codice Fiscale è
+                        richiesto.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- New fields for Recapito and Tipo Recapito -->
+        <div class="row mb-3">
+            <div class="col-12 col-md-6"> <!-- Recapito -->
+                <label for="recapito" class="form-label">Recapito:</label>
+                <input id="recapito" formControlName="recapito" class="form-control" style="height: 45px;" required>
+                <div *ngIf="anagraficaForm.get('recapito')?.invalid && anagraficaForm.get('recapito')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('recapito')?.errors?.['required']">Recapito è richiesto.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6"> <!-- Tipo Recapito -->
+                <label for="idTipoRecapito" class="form-label">Tipo Recapito:</label>
+                <select id="idTipoRecapito" formControlName="idTipoRecapito" class="form-control" style="height: 45px;"
+                    required>
+                    <option value="">Seleziona un tipo recapito</option>
+                    <option *ngFor="let tipo of tipologie" [value]="tipo.idTipoRecapito">{{ tipo.nome }}</option>
+                </select>
+                <div *ngIf="anagraficaForm.get('idTipoRecapito')?.invalid && anagraficaForm.get('idTipoRecapito')?.touched"
+                    class="text-danger">
+                    <small *ngIf="anagraficaForm.get('idTipoRecapito')?.errors?.['required']">Tipo Recapito è
+                        richiesto.</small>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="anagraficaForm.invalid">Next</button>
+    </form>
+</div>

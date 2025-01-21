@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.parent-container {
+    height: 100%;
+    padding: 20px;
+    /* Add some padding for smaller screens */
+}
+
+.form-login {
+    padding: 30px;
+}
+
+label.is-invalid {
+    color: #ff0000;
+}
+
+input.is-invalid {
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.custom-margin {
+    margin-top: 200px;
+    /* Adjust this value as needed */
+}

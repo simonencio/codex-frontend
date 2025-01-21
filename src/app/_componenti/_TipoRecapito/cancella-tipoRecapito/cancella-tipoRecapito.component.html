@@ -1,0 +1,23 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Cancella Tipo Recapito</h2> <!-- Updated title -->
+            <div class="input-group mb-3">
+                <select class="form-control" [(ngModel)]="idRisorsaCancella" name="idRisorsaCancella" required>
+                    <option value="" disabled selected>Seleziona una tipologia da cancellare</option>
+                    <!-- Changed from categoria to tipologia -->
+                    <option *ngFor="let tipologia of dati" [value]="tipologia.idTipoRecapito">
+                        <!-- Changed from idTipologiaIndirizzo to idTipoRecapito -->
+                        {{ tipologia.idTipoRecapito }} | {{ tipologia.nome }}
+                        <!-- Changed from idTipologiaIndirizzo to idTipoRecapito -->
+                    </option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mb-5" type="button" id="button-addon2"
+                    (click)="cancellaValore(idRisorsaCancella)">Cancella Tipo Recapito</button>
+                <!-- Updated button text -->
+            </div>
+        </div>
+    </div>
+</div>

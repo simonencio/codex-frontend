@@ -1,0 +1,25 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Tipologie Indirizzi</h1>
+    <!-- Changed from Gestione Categorie to Gestione Tipologie Indirizzi -->
+    <app-lista-tipologieIndirizzi (tipologiaSelected)="handleTipologiaSelected($event)"></app-lista-tipologieIndirizzi>
+    <!-- Changed from app-lista-categorie to app-lista-tipologieIndirizzi -->
+
+    <div class="button-container my-3">
+        <button class="btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Tipologia
+            Indirizzo</button>
+        <!-- Changed from Aggiungi Categoria to Aggiungi Tipologia Indirizzo -->
+    </div>
+
+    <hr>
+
+    <app-aggiungi-tipologieIndirizzi *ngIf="showAggiungi"></app-aggiungi-tipologieIndirizzi>
+    <!-- Changed from app-aggiungi-categorie to app-aggiungi-tipologieIndirizzi -->
+
+    <app-modifica-tipologieIndirizzi *ngIf="showModifica"
+        [tipologia]="selectedTipologia"></app-modifica-tipologieIndirizzi>
+    <!-- Changed from app-modifica-categorie to app-modifica-tipologieIndirizzi and categoria to tipologia -->
+
+    <app-cancella-tipologieIndirizzi *ngIf="showCancella"
+        [tipologia]="selectedTipologia"></app-cancella-tipologieIndirizzi>
+    <!-- Changed from app-cancella-categorie to app-cancella-tipologieIndirizzi -->
+</div>

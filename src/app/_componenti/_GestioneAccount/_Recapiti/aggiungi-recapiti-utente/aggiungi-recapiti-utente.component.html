@@ -1,0 +1,36 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Recapito</h2> <!-- Updated title -->
+            <form (ngSubmit)="aggiungiValore()" #recapitoForm="ngForm"> <!-- Changed form name -->
+
+                <div class="mb-3">
+                    <label for="idContatto" class="form-label">ID Contatto</label>
+                    <input type="number" id="idContatto" class="form-control" placeholder="ID Contatto"
+                        [value]="loggedInIdContatto" readonly> <!-- Display as read-only -->
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipoRecapito" class="form-label">Tipo Recapito</label>
+                    <select id="tipoRecapito" class="form-select" [(ngModel)]="newIdTipoRecapito" name="tipoRecapito"
+                        required>
+                        <option value="" disabled selected>Seleziona un tipo recapito</option>
+                        <option *ngFor="let tipo of tipologie" [value]="tipo.idTipoRecapito">{{ tipo.nome }}</option>
+                        <!-- Display TipoRecapito name -->
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="recapito" class="form-label">Recapito</label>
+                    <input type="text" id="recapito" class="form-control" placeholder="Inserisci recapito"
+                        [(ngModel)]="newRecapito" name="recapito" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn custom-btn mb-5" type="submit" [disabled]="recapitoForm.invalid">Aggiungi
+                        Recapito</button> <!-- Changed button text -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

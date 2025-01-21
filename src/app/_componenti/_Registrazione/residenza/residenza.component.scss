@@ -1,0 +1,15 @@
+.form-label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Recapiti</h1> <!-- Updated title -->
+    <app-lista-recapiti (recapitoSelected)="handleRecapitoSelected($event)"></app-lista-recapiti>
+    <!-- Changed from app-lista-tipoRecapito to app-lista-recapiti -->
+
+    <div class="button-container my-3">
+        <button class="btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Recapito</button>
+        <!-- Changed from Aggiungi Tipo Recapito to Aggiungi Recapito -->
+    </div>
+
+    <hr>
+
+    <app-aggiungi-recapiti *ngIf="showAggiungi"></app-aggiungi-recapiti>
+    <!-- Changed from app-aggiungi-tipoRecapito to app-aggiungi-recapito -->
+
+    <app-modifica-recapiti *ngIf="showModifica" [recapito]="selectedRecapito"></app-modifica-recapiti>
+    <!-- Changed from app-modifica-tipoRecapito to app-modifica-recapito -->
+
+    <app-cancella-recapiti *ngIf="showCancella" [recapito]="selectedRecapito"></app-cancella-recapiti>
+    <!-- Changed from app-cancella-tipoRecapito to app-cancella-recapito -->
+</div>

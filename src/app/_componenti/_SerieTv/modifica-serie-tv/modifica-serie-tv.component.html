@@ -1,0 +1,91 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Modifica Serie TV</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="categoriaSelect" class="form-label">Seleziona Categoria</label>
+                    <select id="categoriaSelect" class="form-select" [(ngModel)]="newIdCategoria" name="newIdCategoria">
+                        <option *ngFor="let categoria of categorie" [value]="categoria.idCategoria">
+                            {{ categoria.idCategoria }} | {{ categoria.nome }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="newNome" class="form-label">Nuovo Nome</label>
+                    <input type="text" id="newNome" class="form-control" placeholder="Inserisci nuovo nome"
+                        [(ngModel)]="newNome" name="newNome">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newDescrizione" class="form-label">Nuova Descrizione</label>
+                    <input type="text" id="newDescrizione" class="form-control"
+                        placeholder="Inserisci nuova descrizione" [(ngModel)]="newDescrizione" name="newDescrizione">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newTotaleStagioni" class="form-label">Totale Stagioni</label>
+                    <input type="number" id="newTotaleStagioni" class="form-control"
+                        placeholder="Inserisci totale stagioni" [(ngModel)]="newTotaleStagioni"
+                        name="newTotaleStagioni">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newNumeroEpisodi" class="form-label">Numero Episodi</label>
+                    <input type="number" id="newNumeroEpisodi" class="form-control"
+                        placeholder="Inserisci numero episodi" [(ngModel)]="newNumeroEpisodi" name="newNumeroEpisodi">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newRegista" class="form-label">Regista</label>
+                    <input type="text" id="newRegista" class="form-control" placeholder="Inserisci nome del regista"
+                        [(ngModel)]="newRegista" name="newRegista">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newAttori" class="form-label">Attori</label>
+                    <input type="text" id="newAttori" class="form-control" placeholder="Inserisci nomi degli attori"
+                        [(ngModel)]="newAttori" name="newAttori">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newAnnoInizio" class="form-label">Anno Inizio</label>
+                    <input type="number" id="newAnnoInizio" class="form-control" placeholder="Inserisci anno di inizio"
+                        [(ngModel)]="newAnnoInizio" name="newAnnoInizio">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newAnnoFine" class="form-label">Anno Fine</label>
+                    <input type="number" id="newAnnoFine" class="form-control" placeholder="Inserisci anno di fine"
+                        [(ngModel)]="newAnnoFine" name="newAnnoFine">
+                </div>
+
+                <div class="mb-3">
+                    <label for="videoFile" class="form-label">Carica Nuovo Video (video)</label>
+                    <input type="file" id="videoFile" class="form-control" (change)="onVideoFileChange($event)">
+                </div>
+
+                <div class="mb-3">
+                    <label for="locandina" class="form-label">Carica Nuova Locandina (immagine)</label>
+                    <input type="file" id="locandina" class="form-control" (change)="onLocandinaFileChange($event)">
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="button" (click)="serie && modificaValore(
+                        serie.idSerieTv, 
+                        newIdCategoria,
+                        newNome, 
+                        newDescrizione, 
+                        newTotaleStagioni, 
+                        newNumeroEpisodi, 
+                        newRegista, 
+                        newAttori, 
+                        newAnnoInizio,
+                        newAnnoFine
+                    )">Modifica Serie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

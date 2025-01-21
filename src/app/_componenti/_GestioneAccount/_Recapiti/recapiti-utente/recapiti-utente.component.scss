@@ -1,0 +1,22 @@
+.btn {
+    background-color: #ff0066;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #ff0066;
+    font-weight: bold;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    /* Button background color */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* Remove default border */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-weight: bold;
+    /* Make the font bold */
+}

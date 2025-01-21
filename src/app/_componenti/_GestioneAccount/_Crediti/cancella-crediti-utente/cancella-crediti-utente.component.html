@@ -1,0 +1,23 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Cancella Credito</h2> <!-- Updated title -->
+            <div class="input-group mb-3">
+                <select class="form-control" [(ngModel)]="idRisorsaCancella" name="idRisorsaCancella" required>
+                    <option value="" disabled selected>Seleziona un credito da cancellare</option>
+                    <!-- Changed from tipologia to credito -->
+                    <option *ngFor="let credito of dati" [value]="credito.idCredito">
+                        <!-- Changed from idTipoRecapito to idCredito -->
+                        {{ credito.idCredito }} | {{ credito.credito }}
+                        <!-- Assuming credito is the property to display -->
+                    </option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mb-5" type="button" id="button-addon2"
+                    (click)="cancellaValore(idRisorsaCancella)">Cancella Credito</button>
+                <!-- Updated button text -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center" style="margin-top: 200px; margin-bottom: 50px;">
+    <form [formGroup]="credenzialiForm" (ngSubmit)="onSubmit()" class="text-center mt-5 mb-5 bg-white"
+        style="max-width: 600px; width: 90%; border: 2px solid black; padding: 40px; border-radius: 20px;">
+
+        <h2 class="mb-4">Inserisci Password</h2> <!-- Title for clarity -->
+
+        <div class="mb-3">
+            <div class="col-10 mx-auto">
+                <label for="psw" class="form-label">Password:</label>
+                <div class="input-group">
+                    <input id="psw" [type]="passwordVisible ? 'text' : 'password'" formControlName="psw"
+                        class="form-control" style="height: 45px;" required />
+                    <span class="input-group-text" (click)="togglePasswordVisibility()" style="cursor: pointer;">
+                        <i class="fa" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </span>
+                </div>
+                <div *ngIf="credenzialiForm.get('psw')?.invalid && credenzialiForm.get('psw')?.touched"
+                    class="text-danger">
+                    <small *ngIf="credenzialiForm.get('psw')?.errors?.['required']">Password è richiesta.</small>
+                    <small *ngIf="credenzialiForm.get('psw')?.errors?.['minlength']">La password deve avere almeno 6
+                        caratteri.</small>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="credenzialiForm.invalid">Next</button>
+    </form>
+</div>

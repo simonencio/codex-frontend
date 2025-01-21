@@ -1,0 +1,27 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Credito</h2> <!-- Updated title -->
+            <form (ngSubmit)="aggiungiValore()" #creditoForm="ngForm">
+                <!-- Changed from tipoRecapitoForm to creditoForm -->
+
+                <div class="mb-3">
+                    <label for="idContatto" class="form-label">ID Contatto</label>
+                    <input type="number" id="idContatto" class="form-control" placeholder="Inserisci ID Contatto"
+                        [(ngModel)]="newIdContatto" name="idContatto" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="credito" class="form-label">Credito</label>
+                    <input type="number" id="credito" class="form-control" placeholder="Inserisci importo credito"
+                        [(ngModel)]="newCredito" name="credito" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn  mb-5" type="submit" [disabled]="creditoForm.invalid">Aggiungi
+                        Credito</button> <!-- Changed button text -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

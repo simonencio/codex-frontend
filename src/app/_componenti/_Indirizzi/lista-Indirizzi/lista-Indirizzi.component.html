@@ -1,0 +1,56 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID Indirizzo</th>
+            <th>ID Contatto</th>
+            <th>Contatto</th> <!-- Displaying the full name of the contact -->
+            <th>Tipologia Indirizzo</th> <!-- Display the name of the address type -->
+            <th>Nazione</th>
+            <th>Cittadinanza</th>
+            <th>Provincia</th>
+            <th>Città</th>
+            <th>CAP</th>
+            <th>Indirizzo</th>
+            <th>Civico</th>
+            <th>Altro</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let indirizzo of dati">
+            <td>{{ indirizzo.idIndirizzo }}</td>
+            <td>{{ indirizzo.idContatto }}</td> <!-- Displaying ID Contatto -->
+            <td>{{ getContattoName(indirizzo.idContatto) }}</td> <!-- Displaying nome and cognome -->
+            <td>{{ getTipologiaNome(indirizzo.idTipologiaIndirizzo) }}</td>
+            <td>{{ indirizzo.nazione }}</td>
+            <td>{{ indirizzo.cittadinanza }}</td>
+            <td>{{ indirizzo.provincia }}</td>
+            <td>{{ indirizzo.citta }}</td>
+            <td>{{ indirizzo.cap }}</td>
+            <td>{{ indirizzo.indirizzo }}</td>
+            <td>{{ indirizzo.civico }}</td>
+            <td>{{ indirizzo.altro }}</td>
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editIndirizzo(indirizzo)"></i> <!-- Edit button -->
+                <i class="fas fa-trash" (click)="deleteIndirizzo(indirizzo.idIndirizzo)"></i> <!-- Delete button -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID Indirizzo</th>
+            <th>ID Contatto</th> <!-- Added ID Contatto column -->
+            <th>Contatto</th> <!-- Displaying the full name of the contact -->
+            <th>Tipologia Indirizzo</th>
+            <th>Nazione</th>
+            <th>Cittadinanza</th>
+            <th>Provincia</th>
+            <th>Città</th>
+            <th>CAP</th>
+            <th>Indirizzo</th>
+            <th>Civico</th>
+            <th>Altro</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

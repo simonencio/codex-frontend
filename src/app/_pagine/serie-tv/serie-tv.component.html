@@ -1,0 +1,89 @@
+<div>
+    <!-- Centered Dropdown for Categories -->
+    <div class="text-center mb-5 mt-5">
+        <div class="dropdown-container">
+            <select (change)="onCategoryChange($event)" class="form-select custom-dropdown">
+                <option value="">Tutte le categorie</option>
+                <option *ngFor="let category of categories" [value]="category.idCategoria">{{ category.nome }}</option>
+            </select>
+        </div>
+    </div>
+    <h2 style="text-align: center;">TV Series</h2>
+
+
+    <div *ngIf="filteredDatiSerie.length > 0">
+        <div class="box">
+            <div id="seriesCarousel" class="carousel slide mt-5 mb-5" data-bs-ride="false">
+                <div class="carousel-inner">
+                    <ng-container *ngFor="let group of groupedSeries; let i = index">
+                        <div class="carousel-item" [class.active]="i === 0">
+                            <div class="row g-0">
+                                <div *ngFor="let serie of group" class="col-6 col-md-4 col-lg-3">
+                                    <div class="p-1 position-relative" style="position: relative;">
+                                        <img *ngIf="serie.idSerieTv" [src]="getImagePath(serie.idSerieTv)"
+                                            class="img-fluid" alt="Locandina di {{serie.idSerieTv}}"
+                                            style="height: 150px; width: 100%;"
+                                            (mouseenter)="showSerieVideo(serie.idSerieTv)">
+                                        <video *ngIf="currentSerieVideoId === serie.idSerieTv"
+                                            [src]="getVideoPath(serie.idSerieTv)" class="position-absolute video-hover"
+                                            style="height: 150px; width: 100%;" autoplay muted preload="metadata"
+                                            (mouseleave)="hideVideo()" (click)="openEpisodesModal(serie)">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <p class="text-left m-0 position-absolute"
+                                            style="bottom: 10px; left: 10px; color: white; padding: 5px;">
+                                            {{serie.nome}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#seriesCarousel"
+                    data-bs-slide="prev" style="width: 5%;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#seriesCarousel"
+                    data-bs-slide="next" style="width: 5%;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="filteredDatiSerie.length === 0">
+        <p>No TV series available.</p>
+    </div>
+
+    <!-- Modal for Episodes -->
+    <div class="modal fade" id="episodesModal" tabindex="-1" aria-labelledby="episodesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content custom-modal">
+                <div class="modal-header d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn" (click)="goBackToEpisodesModal()" aria-label="Go Back">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h5 class="modal-title text-center flex-grow-1" id="episodesModalLabel">Episodi</h5>
+                </div>
+                <div class="modal-body">
+                    <ng-container *ngFor="let episodio of selectedEpisodi; let i = index">
+                        <div class="mb-3 text-center">
+                            <div class="mb-2">
+                                <h5 class="mb-1 modal-title">{{ episodio.titolo }}</h5>
+                                <p class="mb-0 text-muted">{{ episodio.descrizione }}</p>
+                            </div>
+                            <button (click)="openFullscreenEpisodi(episodio)"
+                                class="w-100 btn custom-btn text-center text-decoration-none d-flex align-items-center justify-content-center">
+                                <i class="fas fa-play me-2"></i> Play Episode
+                            </button>
+                        </div>
+                        <div *ngIf="i < selectedEpisodi.length - 1" class="border-bottom my-2"></div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

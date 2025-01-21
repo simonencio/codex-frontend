@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+    /* Apply box-sizing to all elements */
+}
+
+.img-fluid {
+    width: 100%;
+    /* Full width */
+    height: 150px;
+    /* Adjusted height for smaller screens */
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling on hover */
+}
+
+.position-absolute {
+    position: absolute;
+    /* Positioning for the video */
+    top: 0;
+    /* Align to the top */
+    left: 0;
+    /* Align to the left */
+    z-index: 1;
+    /* Ensure the video appears above the image */
+}
+
+.text-left {
+    text-align: left;
+    /* Align text to the left */
+}
+
+video {
+    object-fit: cover;
+    /* Ensures the video covers the area without distortion */
+    height: 150px;
+    /* Match the height of the image */
+    width: 100%;
+    /* Match the width of the image */
+    padding: 0;
+    /* Remove any default padding */
+    border: none;
+    /* Remove any default border */
+    display: block;
+    /* Ensure it behaves like a block element */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+}
+
+
+
+
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    margin-bottom: 20px;
+    /* Space between dropdown and heading */
+}
+
+.custom-dropdown {
+    width: 300px;
+    /* Adjust the width as needed */
+    background-color: #ff0066;
+    /* Background color */
+    color: black;
+    /* Text color */
+    font-weight: bold;
+    /* Bold text */
+    text-align: center;
+    /* Center text */
+    border: none;
+    /* Remove border */
+    padding: 10px;
+    /* Add some padding */
+    appearance: none;
+    /* Remove default arrow */
+    -webkit-appearance: none;
+    /* Remove default arrow for Safari */
+    -moz-appearance: none;
+    /* Remove default arrow for Firefox */
+}
+
+.custom-dropdown option {
+    background-color: #ff0066;
+    /* Background color for options */
+    color: blacxk;
+    /* Text color for options */
+    font-weight: bold;
+    /* Bold text for options */
+    text-align: center;
+    /* Center text for options */
+}
+
+/* Hide the scrollbar */
+.custom-dropdown::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for WebKit browsers */
+}
+
+.custom-dropdown {
+    overflow: hidden;
+    /* Hide overflow */
+}
+
+
+
+
+
+
+
+
+
+.custom-modal {
+    background-color: #6c757d;
+    /* Gray background */
+    color: white;
+    /* Bright white text */
+}
+
+.custom-modal .modal-title,
+.custom-modal .modal-body p {
+    color: antiquewhite;
+    font-weight: bold;
+    /* Ensure text is white */
+}
+
+.modal-body {
+    padding-top: 5px;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    /* Button background color */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* Remove default border */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-weight: bold;
+    /* Make the font bold */
+}
+
+.custom-btn:hover {
+    color: white;
+    /* Text color on hover */
+}
+
+/* Hover effect for the video */
+.video-hover:hover {
+    transform: scale(1.1);
+    /* Scale up the video on hover */
+}
+
+/* Optional: Hover effect for the image */
+.img-fluid:hover {
+    transform: scale(1.05);
+    /* Slightly scale the image on hover */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+    /* Initially hide the buttons */
+    transition: opacity 0.3s ease;
+    /* Smooth transition for opacity */
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 1;
+    /* Show buttons on hover */
+}
+
+/* Add this to your component's SCSS file */
+.fullscreen-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    /* Optional: background color */
+    z-index: 9999;
+    /* Ensure it is on top */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    /* Smooth transition */
+}
+
+.fullscreen-video.show {
+    opacity: 1;
+    /* Fully visible when shown */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .img-fluid {
+        height: 150px;
+        /* Adjust height for smaller screens */
+    }
+
+    video {
+        height: 150px;
+        /* Match the height of the image for smaller screens */
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    .img-fluid {
+        height: 120px;
+        /* Further adjust height for extra small screens */
+    }
+
+    video {
+        height: 120px;
+        /* Match the height of the image for extra small screens */
+    }
+
+    // .carousel-control-prev,
+    // .carousel-control-next {
+    //     width: 10%;
+    //     /* Further adjust button width for extra small screens */
+    // }
+}

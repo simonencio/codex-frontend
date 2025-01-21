@@ -1,0 +1,54 @@
+<div class="container mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-12 d-flex justify-content-center mb-4"> <!-- First row of buttons -->
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleSerieTv()">
+                {{ showSerieTv ? 'Hide Serie TV' : 'Show Serie TV' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleFilm()">
+                {{ showFilm ? 'Hide Film' : 'Show Film' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleEpisodi()">
+                {{ showEpisodi ? 'Hide Episodi' : 'Show Episodi' }}
+            </button>
+        </div>
+        <div class="col-12 d-flex justify-content-center mb-4"> <!-- Second row of buttons -->
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleCategorie()">
+                {{ showCategorie ? 'Hide Categorie' : 'Show Categorie' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleTipologieIndirizzi()">
+                {{ showTipologieIndirizzi ? 'Hide Tipologie Indirizzi' : 'Show Tipologie Indirizzi' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleIndirizzi()">
+                {{ showIndirizzi ? 'Hide Indirizzi' : 'Show Indirizzi' }}
+            </button>
+        </div>
+        <div class="col-12 d-flex justify-content-center mb-4"> <!-- Third row of buttons -->
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleProfili()">
+                {{ showProfili ? 'Hide Profili' : 'Show Profili' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleTipiRecapiti()">
+                {{ showTipiRecapiti ? 'Hide Tipologie Recapiti' : 'Show Tipologie Recapiti' }}
+            </button>
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleCrediti()">
+                {{ showCrediti ? 'Hide Crediti' : 'Show Crediti' }}
+            </button>
+        </div>
+        <div class="col-12 d-flex justify-content-center"> <!-- Fourth row of buttons -->
+            <button class="btn custom-btn w-25 fs-5" (click)="toggleRecapiti()">
+                {{ showRecapiti ? 'Hide Recapiti' : 'Show Recapiti' }}
+            </button>
+        </div>
+    </div>
+</div>
+<div>
+    <serie-tv *ngIf="showSerieTv"></serie-tv>
+    <film *ngIf="showFilm"></film>
+    <episodi *ngIf="showEpisodi"></episodi>
+    <categorie *ngIf="showCategorie"></categorie>
+    <tipologieIndirizzi *ngIf="showTipologieIndirizzi"></tipologieIndirizzi>
+    <Indirizzi *ngIf="showIndirizzi"></Indirizzi>
+    <profili *ngIf="showProfili"></profili>
+    <tipoRecapito *ngIf="showTipiRecapiti"></tipoRecapito>
+    <crediti *ngIf="showCrediti"></crediti>
+    <recapiti *ngIf="showRecapiti"></recapiti>
+</div>

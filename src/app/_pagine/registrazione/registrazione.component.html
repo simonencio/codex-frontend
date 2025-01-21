@@ -1,0 +1,15 @@
+<div *ngIf="currentStep === 1">
+    <app-email (onNext)="onNext($event)"></app-email>
+</div>
+
+<div *ngIf="currentStep === 2">
+    <app-credenziali (onNext)="onNext($event)"></app-credenziali>
+</div>
+
+<div *ngIf="currentStep === 3">
+    <app-anagrafica [previousData]="userData" (onNext)="onNext($event)"></app-anagrafica>
+</div>
+
+<div *ngIf="currentStep === 4">
+    <app-residenza [previousData]="userData" (onBack)="onBack()"></app-residenza>
+</div>

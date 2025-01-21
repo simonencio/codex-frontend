@@ -1,0 +1,25 @@
+<div class="container mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 text-center mb-3">
+            <button class="btn custom-btn w-75 fs-5 mb-2" (click)="toggleCrediti()">
+                {{ showCrediti ? 'Hide Crediti' : 'Show Crediti' }}
+            </button>
+            <button class="btn custom-btn w-75 fs-5" (click)="toggleProfili()">
+                {{ showProfili ? 'Hide Profili' : 'Show Profili' }}
+            </button>
+        </div>
+        <div class="col-12 col-md-6 text-center mb-3">
+            <button class="btn custom-btn w-75 fs-5 mb-2" (click)="toggleIndirizzi()">
+                {{ showIndirizzi ? 'Hide Indirizzi' : 'Show Indirizzi' }}
+            </button>
+            <button class="btn custom-btn w-75 fs-5" (click)="toggleRecapiti()">
+                {{ showRecapiti ? 'Hide Recapiti' : 'Show Recapiti' }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<crediti-utente *ngIf="showCrediti"></crediti-utente>
+<Indirizzi-utente *ngIf="showIndirizzi"></Indirizzi-utente>
+<profili-utente *ngIf="showProfili"></profili-utente>
+<recapiti-utente *ngIf="showRecapiti"></recapiti-utente>

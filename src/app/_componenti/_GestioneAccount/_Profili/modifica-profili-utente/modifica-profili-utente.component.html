@@ -1,0 +1,23 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h2 class="text-center mb-4">Modifica Profilo</h2>
+            <!-- Changed from Modifica Tipologia Indirizzo to Modifica Profilo -->
+            <form>
+                <div class="mb-3">
+                    <label for="newNome" class="form-label">Nuovo Nome</label>
+                    <input type="text" id="newNome" class="form-control" placeholder="Inserisci nuovo nome"
+                        [(ngModel)]="newNome" name="newNome"> <!-- Kept as newNome -->
+                </div>
+
+                <div class="text-center">
+                    <button class="btn custom-btn mb-5" type="button" (click)="profilo && modificaValore( 
+                        profilo.idProfilo, 
+                        newNome
+                    )">Modifica Profilo</button>
+                    <!-- Changed from Modifica Tipologia Indirizzo to Modifica Profilo -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

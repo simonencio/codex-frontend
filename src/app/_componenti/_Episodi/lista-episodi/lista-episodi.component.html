@@ -1,0 +1,46 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Serie TV</th> <!-- Changed from idCategoria to ID Serie TV -->
+            <th>Titolo</th> <!-- Title remains the same -->
+            <th>Descrizione</th>
+            <th>Numero Stagione</th> <!-- Changed from Durata to Numero Stagione -->
+            <th>Numero Episodio</th> <!-- Added column for Numero Episodio -->
+            <th>Durata (minuti)</th> <!-- Duration remains the same -->
+            <th>Anno di Uscita</th> <!-- Year of release remains the same -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let episodio of dati"> <!-- Changed from film to episodio -->
+            <td>{{episodio.idEpisodio}}</td> <!-- Changed from film.idFilm to episodio.idEpsiodio -->
+            <td>{{episodio.idSerieTv}}</td> <!-- Changed from film.idCategoria to episodio.idSerieTv -->
+            <td>{{episodio.titolo}}</td> <!-- Title remains the same -->
+            <td>{{episodio.descrizione}}</td> <!-- Description remains the same -->
+            <td>{{episodio.numeroStagione}}</td> <!-- Changed from film.durata to episodio.numeroStagione -->
+            <td>{{episodio.NumeroEpisodio}}</td> <!-- Added binding for episodio.numeroEpisodio -->
+            <td>{{episodio.durata}}</td> <!-- Duration remains the same -->
+            <td>{{episodio.anno}}</td> <!-- Year of release remains the same -->
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editEpisodio(episodio)"></i>
+                <!-- Changed from editFilm to editEpisodio -->
+                <i class="fas fa-trash" (click)="deleteEpisodio(episodio.idEpisodio)"></i>
+                <!-- Changed from deleteFilm to deleteEpisodio -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID</th>
+            <th>ID Serie TV</th> <!-- Changed from idCategoria to ID Serie TV -->
+            <th>Titolo</th> <!-- Title remains the same -->
+            <th>Descrizione</th>
+            <th>Numero Stagione</th> <!-- Changed from Durata to Numero Stagione -->
+            <th>Numero Episodio</th> <!-- Added column for Numero Episodio -->
+            <th>Durata (minuti)</th> <!-- Duration remains the same -->
+            <th>Anno di Uscita</th> <!-- Year of release remains the same -->
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,24 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Cancella Categoria</h2>
+            <!-- Changed from Cancella Episodio to Cancella Categoria -->
+            <div class="input-group mb-3">
+                <select class="form-control" [(ngModel)]="idRisorsaCancella" name="idRisorsaCancella" required>
+                    <option value="" disabled selected>Seleziona una categoria da cancellare</option>
+                    <!-- Changed from episodio to categoria -->
+                    <option *ngFor="let categoria of dati" [value]="categoria.idCategoria">
+                        <!-- Changed from idEpisodio to idCategoria -->
+                        {{ categoria.idCategoria }} | {{ categoria.nome }}
+                        <!-- Changed from titolo to nome -->
+                    </option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mb-5" type="button" id="button-addon2"
+                    (click)="cancellaValore(idRisorsaCancella)">Cancella Categoria</button>
+                <!-- Changed from Cancella Episodio to Cancella Categoria -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Modifica Episodio</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="serieTvSelect" class="form-label">Seleziona Serie TV</label>
+                    <select id="serieTvSelect" class="form-select" [(ngModel)]="newIdSerieTv" name="newIdSerieTv">
+                        <option *ngFor="let serie of serieTv" [value]="serie.idSerieTv">
+                            {{ serie.idSerieTv }} | {{ serie.nome }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="newTitolo" class="form-label">Nuovo Titolo</label>
+                    <input type="text" id="newTitolo" class="form-control" placeholder="Inserisci nuovo titolo"
+                        [(ngModel)]="newTitolo" name="newTitolo">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newDescrizione" class="form-label">Nuova Descrizione</label>
+                    <input type="text" id="newDescrizione" class="form-control"
+                        placeholder="Inserisci nuova descrizione" [(ngModel)]="newDescrizione" name="newDescrizione">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newNumeroStagione" class="form-label">Numero Stagione</label>
+                    <input type="number" id="newNumeroStagione" class="form-control"
+                        placeholder="Inserisci numero di stagione" [(ngModel)]="newNumeroStagione"
+                        name="newNumeroStagione">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newNumeroEpisodio" class="form-label">Numero Episodio</label>
+                    <input type="number" id="newNumeroEpisodio" class="form-control"
+                        placeholder="Inserisci numero episodio" [(ngModel)]="newNumeroEpisodio"
+                        name="newNumeroEpisodio">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newDurata" class="form-label">Durata (minuti)</label>
+                    <input type="number" id="newDurata" class="form-control" placeholder="Inserisci durata in minuti"
+                        [(ngModel)]="newDurata" name="newDurata">
+                </div>
+
+                <div class="mb-3">
+                    <label for="newAnno" class="form-label">Anno di Uscita</label>
+                    <input type="number" id="newAnno" class="form-control" placeholder="Inserisci anno di uscita"
+                        [(ngModel)]="newAnno" name="newAnno">
+                </div>
+
+                <div class="mb-3">
+                    <label for="videoFile" class="form-label">Carica Nuovo Video</label>
+                    <input type="file" id="videoFile" class="form-control" (change)="onVideoFileChange($event)"
+                        accept=".mp4">
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="button" (click)="episodio && modificaValore( 
+                        episodio.idEpisodio, 
+                        newIdSerieTv, 
+                        newTitolo, 
+                        newDescrizione, 
+                        newNumeroStagione, 
+                        newNumeroEpisodio, 
+                        newDurata, 
+                        newAnno
+                    )">Modifica Episodio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

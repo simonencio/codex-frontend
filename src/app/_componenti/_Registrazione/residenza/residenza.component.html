@@ -1,0 +1,83 @@
+<div class="container d-flex justify-content-center align-items-center" style="margin-top: 100px; margin-bottom: 50px;">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="text-center bg-white"
+        style="max-width: 800px; width: 90%; border: 2px solid black; padding: 40px; border-radius: 20px;">
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <label for="cittadinanza" class="form-label">Cittadinanza:</label>
+                <input id="cittadinanza" formControlName="cittadinanza" class="form-control" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="nazione" class="form-label">Nazione:</label>
+                <input id="nazione" [ngbTypeahead]="searchNazione" formControlName="nazione" class="form-control"
+                    required>
+                <div *ngIf="registrationForm.get('nazione')?.invalid && registrationForm.get('nazione')?.touched"
+                    class="text-danger">
+                    <small *ngIf="registrationForm.get('nazione')?.errors?.['required']">Nazione è richiesta.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <label for="provincia" class="form-label">Provincia:</label>
+                <input id="provincia" [ngbTypeahead]="searchProvincia" formControlName="provincia" class="form-control"
+                    required (change)="onProvinciaChange()">
+                <div *ngIf="registrationForm.get('provincia')?.invalid && registrationForm.get('provincia')?.touched"
+                    class="text-danger">
+                    <small *ngIf="registrationForm.get('provincia')?.errors?.['required']">Provincia è
+                        richiesta.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="citta" class="form-label">Città:</label>
+                <input id="citta" [ngbTypeahead]="searchCitta" formControlName="citta" class="form-control" required
+                    (change)="onCittaChange()">
+                <div *ngIf="registrationForm.get('citta')?.invalid && registrationForm.get('citta')?.touched"
+                    class="text-danger">
+                    <small *ngIf="registrationForm.get('citta')?.errors?.['required']">Città è richiesta.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <label for="cap" class="form-label">CAP:</label>
+                <select id="cap" formControlName="cap" class="form-control" required>
+                    <option value="" disabled selected>Select CAP</option>
+                    <option *ngFor="let cap of capInizio" [value]="cap">{{ cap }}</option>
+                </select>
+                <div *ngIf="registrationForm.get('cap')?.invalid && registrationForm.get('cap')?.touched"
+                    class="text-danger">
+                    <small *ngIf="registrationForm.get('cap')?.errors?.['required']">CAP è richiesto.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="tipologiaIndirizzo" class="form-label">Tipologia Indirizzo:</label>
+                <select id="tipologiaIndirizzo" formControlName="tipologiaIndirizzo" class="form-control" required>
+                    <option value="" disabled selected>Select Tipologia Indirizzo</option>
+                    <option *ngFor="let tipo of tipologiaIndirizzi" [value]="tipo.idTipologiaIndirizzo">{{ tipo.nome }}
+                    </option>
+                </select>
+                <div *ngIf="registrationForm.get('tipologiaIndirizzo')?.invalid && registrationForm.get('tipologiaIndirizzo')?.touched"
+                    class="text-danger">
+                    <small *ngIf="registrationForm.get('tipologiaIndirizzo')?.errors?.['required']">Tipologia Indirizzo
+                        è richiesta.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-6">
+                <label for="indirizzo" class="form-label">Indirizzo:</label>
+                <input id="indirizzo" formControlName="indirizzo" class="form-control" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="civico" class="form-label">Civico:</label>
+                <input id="civico" formControlName="civico" class="form-control" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Submit</button>
+    </form>
+</div>

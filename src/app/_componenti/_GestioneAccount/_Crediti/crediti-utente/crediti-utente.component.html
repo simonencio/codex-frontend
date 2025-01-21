@@ -1,0 +1,21 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Crediti</h1> <!-- Updated title -->
+    <lista-crediti-utente (creditoSelected)="handleCreditoSelected($event)"></lista-crediti-utente>
+    <!-- Changed from app-lista-tipoRecapito to app-lista-crediti -->
+
+    <div class="button-container my-3">
+        <button class="btn custom-btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Credito</button>
+        <!-- Changed from Aggiungi Tipo Recapito to Aggiungi Credito -->
+    </div>
+
+    <hr>
+
+    <app-aggiungi-crediti-utente *ngIf="showAggiungi"></app-aggiungi-crediti-utente>
+    <!-- Changed from app-aggiungi-tipoRecapito to app-aggiungi-credito -->
+
+    <app-modifica-crediti-utente *ngIf="showModifica" [credito]="selectedCredito"></app-modifica-crediti-utente>
+    <!-- Changed from app-modifica-tipoRecapito to app-modifica-credito -->
+
+    <app-cancella-crediti-utente *ngIf="showCancella" [credito]="selectedCredito"></app-cancella-crediti-utente>
+    <!-- Changed from app-cancella-tipoRecapito to app-cancella-credito -->
+</div>

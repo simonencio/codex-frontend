@@ -1,0 +1,24 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Cancella Profilo</h2>
+            <!-- Changed from Cancella Tipologia Indirizzo to Cancella Profilo -->
+            <div class="input-group mb-3">
+                <select class="form-control" [(ngModel)]="idRisorsaCancella" name="idRisorsaCancella" required>
+                    <option value="" disabled selected>Seleziona un profilo da cancellare</option>
+                    <!-- Changed from tipologia to profilo -->
+                    <option *ngFor="let profilo of dati" [value]="profilo.idProfilo">
+                        <!-- Changed from tipologia to profilo -->
+                        {{ profilo.idProfilo }} | {{ profilo.nome }}
+                        <!-- Changed from idTipologiaIndirizzo to idProfilo -->
+                    </option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mb-5" type="button" id="button-addon2"
+                    (click)="cancellaValore(idRisorsaCancella)">Cancella Profilo</button>
+                <!-- Changed from Cancella Tipologia Indirizzo to Cancella Profilo -->
+            </div>
+        </div>
+    </div>
+</div>

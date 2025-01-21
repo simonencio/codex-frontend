@@ -1,0 +1,28 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Profilo</h2>
+            <!-- Changed from Aggiungi Tipologia Indirizzo to Aggiungi Profilo -->
+            <form (ngSubmit)="aggiungiValore()" #profiloForm="ngForm">
+                <!-- Changed from tipologiaForm to profiloForm -->
+
+                <div class="mb-3">
+                    <label for="idContatto" class="form-label">ID Contatto</label> <!-- Added label for ID Contatto -->
+                    <input type="number" id="idContatto" class="form-control" placeholder="Inserisci ID Contatto"
+                        [(ngModel)]="newIdContatto" name="idContatto" required> <!-- Added input for ID Contatto -->
+                </div>
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Inserisci nome" [(ngModel)]="newNome"
+                        name="nome" required>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="submit" [disabled]="profiloForm.invalid">Aggiungi
+                        Profilo</button> <!-- Changed button text -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

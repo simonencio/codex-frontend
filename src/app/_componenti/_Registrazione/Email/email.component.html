@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center" style="margin-top: 200px; margin-bottom: 50px;">
+    <form [formGroup]="credenzialiForm" (ngSubmit)="onSubmit()" class="text-center mt-5 mb-5 bg-white"
+        style="max-width: 600px; width: 90%; border: 2px solid black; padding: 40px; border-radius: 20px;">
+
+        <h2 class="mb-4">Registrazione</h2> <!-- Added a title for clarity -->
+
+        <div class="mb-3">
+            <div class="col-10 mx-auto">
+                <label for="user" class="form-label">Email:</label>
+                <input id="user" formControlName="user" class="form-control" style="height: 45px;" required />
+
+                <!-- Validation messages for the email input -->
+                <div *ngIf="credenzialiForm.get('user')?.invalid && credenzialiForm.get('user')?.touched"
+                    class="text-danger">
+                    <small *ngIf="credenzialiForm.get('user')?.errors?.['required']">Email è richiesta.</small>
+                    <small *ngIf="credenzialiForm.get('user')?.errors?.['email']">Email non è valida.</small>
+                </div>
+
+                <!-- User existence error message -->
+                <div *ngIf="userError" class="text-danger mt-2">
+                    <small>{{ userError }}</small>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="credenzialiForm.invalid">Next</button>
+    </form>
+</div>

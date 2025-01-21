@@ -1,0 +1,82 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h2 class="text-center mb-4">Aggiungi Serie TV</h2>
+            <form (ngSubmit)="aggiungiValore()" #serieTvForm="ngForm">
+                <div class="mb-3">
+                    <label for="categoriaSelect" class="form-label">Seleziona Categoria</label>
+                    <select id="categoriaSelect" class="form-select" [(ngModel)]="newIdCategoria" name="newIdCategoria">
+                        <option *ngFor="let categoria of categorie" [value]="categoria.idCategoria">
+                            {{ categoria.idCategoria }} | {{ categoria.nome }}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Inserisci nome" [(ngModel)]="newNome"
+                        name="nome" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descrizione" class="form-label">Descrizione</label>
+                    <input type="text" id="descrizione" class="form-control" placeholder="Inserisci descrizione"
+                        [(ngModel)]="newDescrizione" name="descrizione" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="totaleStagioni" class="form-label">Totale Stagioni</label>
+                    <input type="number" id="totaleStagioni" class="form-control"
+                        placeholder="Inserisci totale stagioni" [(ngModel)]="newTotaleStagioni" name="totaleStagioni"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="numeroEpisodi" class="form-label">Numero Episodi</label>
+                    <input type="number" id="numeroEpisodi" class="form-control" placeholder="Inserisci numero episodi"
+                        [(ngModel)]="newNumeroEpisodi" name="numeroEpisodi" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="regista" class="form-label">Regista</label>
+                    <input type="text" id="regista" class="form-control" placeholder="Inserisci nome del regista"
+                        [(ngModel)]="newRegista" name="regista" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="attori" class="form-label">Attori</label>
+                    <input type="text" id="attori" class="form-control" placeholder="Inserisci nomi degli attori"
+                        [(ngModel)]="newAttori" name="attori" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="annoInizio" class="form-label">Anno Inizio</label>
+                    <input type="number" id="annoInizio" class="form-control" placeholder="Inserisci anno di inizio"
+                        [(ngModel)]="newAnnoInizio" name="annoInizio" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="annoFine" class="form-label">Anno Fine</label>
+                    <input type="number" id="annoFine" class="form-control" placeholder="Inserisci anno di fine"
+                        [(ngModel)]="newAnnoFine" name="annoFine" required>
+                </div>
+
+                <!-- File input for video -->
+                <div class="mb-3">
+                    <label for="videoFile" class="form-label">Carica Filmato (video)</label>
+                    <input type="file" id="videoFile" class="form-control" (change)="onVideoFileChange($event)"
+                        required>
+                </div>
+
+                <!-- File input for locandina -->
+                <div class="mb-3">
+                    <label for="locandina" class="form-label">Carica Locandina (immagine)</label>
+                    <input type="file" id="locandina" class="form-control" (change)="onLocandinaFileChange($event)"
+                        required>
+                </div>
+                <div class="text-center">
+                    <button class="btn mb-5" type="submit">Aggiungi Serie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

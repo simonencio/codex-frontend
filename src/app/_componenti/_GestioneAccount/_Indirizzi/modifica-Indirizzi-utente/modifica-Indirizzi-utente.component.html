@@ -1,0 +1,91 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row ">
+        <div class="col-12 mx-auto">
+            <h2 class="text-center mb-4">Modifica Indirizzo</h2>
+            <form [formGroup]="registrationForm" (ngSubmit)="modificaValore()">
+                <div class="mb-3">
+                    <label for="idIndirizzo" class="form-label">ID Indirizzo</label>
+                    <input type="number" id="idIndirizzo" class="form-control" formControlName="idIndirizzo" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="idTipologiaIndirizzo" class="form-label">Tipologia Indirizzo</label>
+                    <select id="idTipologiaIndirizzo" class="form-select" formControlName="idTipologiaIndirizzo"
+                        required>
+                        <option value="" disabled selected>Seleziona Tipologia Indirizzo</option>
+                        <option *ngFor="let tipologia of tipologieIndirizzi" [value]="tipologia.idTipologiaIndirizzo">
+                            {{ tipologia.nome }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="idContatto" class="form-label">ID Contatto</label>
+                    <input type="number" id="idContatto" class="form-control" formControlName="idContatto" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nazione" class="form-label">Nazione</label>
+                    <select id="nazione" class="form-select" formControlName="nazione" required>
+                        <option value="" disabled selected>Seleziona Nazione</option>
+                        <option *ngFor="let nazione of nazioni" [value]="nazione.nome">{{ nazione.nome }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cittadinanza" class="form-label">Cittadinanza</label>
+                    <select id="cittadinanza" class="form-select" formControlName="cittadinanza" required>
+                        <option value="" disabled selected>Seleziona Cittadinanza</option>
+                        <option *ngFor="let cittadinanza of cittadinanze" [value]="cittadinanza.nome">{{
+                            cittadinanza.nome }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="provincia" class="form-label">Provincia</label>
+                    <select id="provincia" class="form-select" formControlName="provincia" required
+                        (change)="onProvinciaChange()">
+                        <option value="" disabled selected>Seleziona Provincia</option>
+                        <option *ngFor="let provincia of province" [value]="provincia">{{ provincia }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="citta" class="form-label">Città</label>
+                    <select id="citta" class="form-select" formControlName="citta" required (change)="onCittaChange()">
+                        <option value="" disabled selected>Seleziona Città</option>
+                        <option *ngFor="let citta of cittaList" [value]="citta">{{ citta }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cap" class="form-label">CAP</label>
+                    <select id="cap" class="form-select" formControlName="cap" required>
+                        <option value="" disabled selected>Seleziona CAP</option>
+                        <option *ngFor="let cap of capList" [value]="cap">{{ cap }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="indirizzo" class="form-label">Indirizzo</label>
+                    <input type="text" id="indirizzo" class="form-control" formControlName="indirizzo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="civico" class="form-label">Civico</label>
+                    <input type="number" id="civico" class="form-control" formControlName="civico" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="altro" class="form-label">Altro</label>
+                    <input type="text" id="altro" class="form-control" formControlName="altro">
+                </div>
+
+                <div class="text-center">
+                    <button class="btn custom-btn mb-5" type="submit" [disabled]="registrationForm.invalid">Modifica
+                        Indirizzo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+// .contenitore {
+//     min-height: 1000px;
+// }
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Make sure the host takes at least the full height of the viewport */
+}
+
+main {
+    flex: 1;
+    /* This allows the main content area to grow and fill the available space */
+}
+
+.text-custom {
+    color: #ff0066;
+    /* Custom text color */
+}

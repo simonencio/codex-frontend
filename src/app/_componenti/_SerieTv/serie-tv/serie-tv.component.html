@@ -1,0 +1,11 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Serie TV</h1>
+    <app-lista-serie-tv (serieSelected)="handleSerieSelected($event)"></app-lista-serie-tv>
+    <div class="button-container my-3">
+        <button class="btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Serie TV</button>
+    </div>
+    <hr>
+    <app-aggiungi-serie-tv *ngIf="showAggiungi"></app-aggiungi-serie-tv>
+    <app-modifica-serie-tv *ngIf="showModifica" [serie]="selectedSerie"></app-modifica-serie-tv>
+    <!-- <app-cancella-serie-tv *ngIf="showCancella" [serie]="selectedSerie"></app-cancella-serie-tv> -->
+</div>

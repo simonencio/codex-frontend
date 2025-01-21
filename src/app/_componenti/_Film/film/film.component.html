@@ -1,0 +1,16 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center mt-5">Gestione Film</h1> <!-- Changed from Gestione Serie TV to Gestione Film -->
+    <app-lista-film (filmSelected)="handleFilmSelected($event)"></app-lista-film>
+    <!-- Changed from app-lista-serie-tv to app-lista-film -->
+    <div class="button-container my-3">
+        <button class="btn mx-2" (click)="displayComponent('aggiungi')">Aggiungi Film</button>
+        <!-- Changed from Aggiungi Serie TV to Aggiungi Film -->
+    </div>
+    <hr>
+    <app-aggiungi-film *ngIf="showAggiungi"></app-aggiungi-film>
+    <!-- Changed from app-aggiungi-serie-tv to app-aggiungi-film -->
+    <app-modifica-film *ngIf="showModifica" [film]="selectedFilm"></app-modifica-film>
+    <!-- Changed from app-modifica-serie-tv to app-modifica-film and serie to film -->
+    <!-- <app-cancella-serie-tv *ngIf="showCancella" [serie]="selectedSerie"></app-cancella-serie-tv> -->
+    <!-- This line can be updated similarly if needed -->
+</div>

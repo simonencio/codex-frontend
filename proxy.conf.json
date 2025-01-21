@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target": "http://localhost/finale/codex/public/api",
+        "_target": "https://localhost/server/public/api",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

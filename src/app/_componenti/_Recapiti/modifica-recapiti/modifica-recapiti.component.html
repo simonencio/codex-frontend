@@ -1,0 +1,32 @@
+<div *ngIf="isFormVisible" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Modifica Recapito</h2> <!-- Updated title -->
+            <form>
+                <div class="mb-3">
+                    <label for="tipoRecapito" class="form-label">Tipo Recapito</label>
+                    <select id="tipoRecapito" class="form-select" [(ngModel)]="newIdTipoRecapito" name="tipoRecapito"
+                        required>
+                        <option value="" disabled selected>Seleziona un tipo recapito</option>
+                        <option *ngFor="let tipo of tipologie" [value]="tipo.idTipoRecapito">{{ tipo.nome }}</option>
+                        <!-- Display TipoRecapito name -->
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="newRecapito" class="form-label">Nuovo Recapito</label>
+                    <input type="text" id="newRecapito" class="form-control" placeholder="Inserisci nuovo recapito"
+                        [(ngModel)]="newRecapito" name="newRecapito" required> <!-- Updated to newRecapito -->
+                </div>
+
+                <div class="text-center">
+                    <button class="btn mb-5" type="button" (click)="recapito && modificaValore( 
+                        recapito.idRecapito, 
+                        newIdTipoRecapito, 
+                        newRecapito
+                    )">Modifica Recapito</button> <!-- Updated button text and parameters -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

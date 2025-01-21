@@ -1,0 +1,78 @@
+.attivo {
+    color: #ff0066;
+    // border-bottom: 1px solid white;
+}
+
+.dropdown-menu {
+    background-color: black;
+    margin-top: 0;
+    // z-index: 1050;
+    /* Set background color to black */
+}
+
+.dropdown-item {
+    color: #ff0066;
+    /* Set text color to white */
+}
+
+.dropdown-item:hover {
+    background-color: black;
+    /* Optional: Change background on hover */
+    color: #ff0066;
+    /* Ensure text remains white on hover */
+}
+
+.fas {
+    color: #ff0066;
+}
+
+.dropdown-toggle {
+    color: #ff0066;
+}
+
+.dropdown-toggle:active,
+.dropdown-toggle:focus {
+    color: #ff0066;
+}
+
+
+
+.navbar-nav {
+    display: flex;
+    /* Ensure the navbar items are displayed in a row */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+    list-style: none;
+    /* Remove bullet points */
+}
+
+.nav-item {
+    margin-right: 15px;
+    /* Space between items */
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+    /* No margin on the last item */
+}
+
+.nav-link {
+    display: inline-block;
+    /* Ensure links are inline */
+    text-decoration: none;
+    /* Remove underline */
+    color: #ff0066;
+    /* Set link color */
+    font-size: 16px;
+    /* Set a consistent font size for all screens */
+}
+
+/* Optional: Additional styling for hover effects */
+.nav-link:hover {
+    color: #ff3385;
+    /* Change color on hover for better UX */
+}

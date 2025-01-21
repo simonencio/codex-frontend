@@ -1,0 +1,50 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>idCategoria</th>
+            <th>Nome</th>
+            <th>descrizione</th>
+            <th>totaleStagioni</th>
+            <th>NumeroEpisodi</th>
+            <th>regista</th>
+            <th>attori</th>
+            <th>annoInizio</th>
+            <th>annoFine</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let valori of dati">
+            <td>{{valori.idSerieTv}}</td>
+            <td>{{valori.idCategoria}}</td>
+            <td>{{valori.nome}}</td>
+            <td>{{valori.descrizione}}</td>
+            <td>{{valori.totaleStagioni}}</td>
+            <td>{{valori.NumeroEpisodi}}</td>
+            <td>{{valori.regista}}</td>
+            <td>{{valori.attori}}</td>
+            <td>{{valori.annoInizio}}</td>
+            <td>{{valori.annoFine}}</td>
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editSerie(valori)"></i>
+                <i class="fas fa-trash" (click)="deleteSerie(valori.idSerieTv)"></i>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID</th>
+            <th>idCategoria</th>
+            <th>Nome</th>
+            <th>descrizione</th>
+            <th>totaleStagioni</th>
+            <th>NumeroEpisodi</th>
+            <th>regista</th>
+            <th>attori</th>
+            <th>annoInizio</th>
+            <th>annoFine</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>

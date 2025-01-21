@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID Categoria</th> <!-- Changed from ID to ID Categoria -->
+            <th>Nome</th> <!-- Changed from Titolo to Nome -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let categoria of dati"> <!-- Changed from episodio to categoria -->
+            <td>{{ categoria.idCategoria }}</td> <!-- Changed from episodio.idEpisodio to categoria.idCategoria -->
+            <td>{{ categoria.nome }}</td> <!-- Changed from episodio.titolo to categoria.nome -->
+            <td>
+                <i class="fas fa-edit mx-2" (click)="editCategoria(categoria)"></i>
+                <!-- Changed from editEpisodio to editCategoria -->
+                <i class="fas fa-trash" (click)="deleteCategoria(categoria.idCategoria)"></i>
+                <!-- Changed from deleteEpisodio to deleteCategoria -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>ID Categoria</th> <!-- Changed from ID to ID Categoria -->
+            <th>Nome</th> <!-- Changed from Titolo to Nome -->
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>
