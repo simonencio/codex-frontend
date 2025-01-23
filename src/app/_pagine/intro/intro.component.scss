@@ -1,0 +1,41 @@
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: black;
+    margin-top: 300px;
+    /* Black background */
+}
+
+.logo {
+    width: 400px;
+    /* Adjust size as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-bottom: 20px;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid #ff0066;
+    /* Custom color for the spinner */
+    border-radius: 50%;
+    width: 30px;
+    /* Size of the loader */
+    height: 30px;
+    /* Size of the loader */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

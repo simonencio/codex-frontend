@@ -10,7 +10,6 @@
     </div>
     <h2 style="text-align: center;">TV Series</h2>
 
-
     <div *ngIf="filteredDatiSerie.length > 0">
         <div class="box">
             <div id="seriesCarousel" class="carousel slide mt-5 mb-5" data-bs-ride="false">
@@ -23,17 +22,18 @@
                                         <img *ngIf="serie.idSerieTv" [src]="getImagePath(serie.idSerieTv)"
                                             class="img-fluid" alt="Locandina di {{serie.idSerieTv}}"
                                             style="height: 150px; width: 100%;"
-                                            (mouseenter)="showSerieVideo(serie.idSerieTv)">
+                                            (mouseenter)="showSerieVideo(serie.idSerieTv)"
+                                            (click)="openEpisodesModal(serie)">
                                         <video *ngIf="currentSerieVideoId === serie.idSerieTv"
-                                            [src]="getVideoPath(serie.idSerieTv)" class="position-absolute video-hover"
-                                            style="height: 150px; width: 100%;" autoplay muted preload="metadata"
+                                            [src]="getVideoPath(serie.idSerieTv)"
+                                            class="position-absolute video-hover video-responsive"
+                                            style="height: 200px; width: 100%;" autoplay muted preload="metadata"
                                             (mouseleave)="hideVideo()" (click)="openEpisodesModal(serie)">
                                             Your browser does not support the video tag.
                                         </video>
-                                        <p class="text-left m-0 position-absolute"
-                                            style="bottom: 10px; left: 10px; color: white; padding: 5px;">
+                                        <h2 class="text-center film-title mt-2" style="color: #ff0066; padding: 5px;">
                                             {{serie.nome}}
-                                        </p>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,18 @@
                     <h5 class="modal-title text-center flex-grow-1" id="episodesModalLabel">Episodi</h5>
                 </div>
                 <div class="modal-body">
-                    <ng-container *ngFor="let episodio of selectedEpisodi; let i = index">
+                    <!-- Centered Dropdown for Seasons -->
+                    <div class="text-center mb-3">
+                        <div class="dropdown-container">
+                            <select id="seasonSelect" (change)="onSeasonChange($event)"
+                                class="form-select custom-dropdown">
+                                <option value="">Tutte le Stagioni</option>
+                                <option *ngFor="let season of uniqueSeasons" [value]="season">{{ season }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <ng-container *ngFor="let episodio of filteredEpisodi; let i = index">
                         <div class="mb-3 text-center">
                             <div class="mb-2">
                                 <h5 class="mb-1 modal-title">{{ episodio.titolo }}</h5>
@@ -80,7 +91,7 @@
                                 <i class="fas fa-play me-2"></i> Play Episode
                             </button>
                         </div>
-                        <div *ngIf="i < selectedEpisodi.length - 1" class="border-bottom my-2"></div>
+                        <div *ngIf="i < filteredEpisodi.length - 1" class="border-bottom my-2"></div>
                     </ng-container>
                 </div>
             </div>

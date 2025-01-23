@@ -19,6 +19,9 @@
     /* Smooth transition for color change */
     font-weight: bold;
     /* Make the font bold */
+    font-size: 0.875rem;
+    /* Adjust font size (equivalent to Bootstrap's fs-6) */
+    /* You can adjust this value to make it smaller or larger */
 }
 
 .custom-btn:hover {

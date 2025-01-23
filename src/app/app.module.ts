@@ -18,6 +18,7 @@ import { FilmESerieModule } from './_pagine/film-e-serie/film-e-serie.module';
 import { FilmModule } from './_pagine/film/film.module';
 import { SerieTvModule } from './_pagine/serie-tv/serie-tv.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import this
 
 
 
@@ -45,7 +46,7 @@ import { SerieTvModule } from './_pagine/serie-tv/serie-tv.module';
     FilmESerieModule,
     FilmModule,
     SerieTvModule,
-
+    BrowserAnimationsModule
 
   ],
   providers: [],

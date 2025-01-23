@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
 
     this.auth = this.authService.leggiObsAuth();
-    console.log("AUTH ", this.auth);
   }
 
   ngOnInit(): void {
@@ -58,7 +57,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       let password = this.reactiveForm.controls["password"].value;
       this.stoControllando = true;
       this.obsLogin(utente, password).subscribe(this.osservoLogin());
-      console.log("ACCEDI ", utente, password);
     }
   }
 
@@ -82,7 +80,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   private osservoLogin() {
     const osservatore: Observer<any> = {
       next: (rit: IRispostaServer) => {
-        console.log("RITORNO ", rit);
         if (rit.data !== null && rit.message !== null) {
           const tk: string = rit.data.tk;
           const contenutoToken = UtilityService.leggiToken(tk);
@@ -105,7 +102,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem('expirationTime', expirationTime.toString());
           sessionStorage.setItem('idRuolo', auth.idRuolo ? auth.idRuolo.toString() : 'null'); // Store idRuolo
 
-          console.log("Token stored:", tk);
           // Check the idRuolo to navigate to the appropriate route
           if (auth.idRuolo === 1) { // Assuming 1 is for "amministratore"
             this.router.navigateByUrl('/BackEnd'); // Navigate to admin dashboard

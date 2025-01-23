@@ -1,27 +1,32 @@
 <ng-container *ngIf="(auth | async)?.tk === null">
     <div class="parent-container d-flex justify-content-center align-items-center">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <div class="card custom-margin" style="margin-bottom: 50px;">
+            <div class="card custom-margin" style="margin-bottom: 50px; background-color: #343a40; color: whitesmoke;">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Login</h5>
+                    <h5 class="card-title text-center" style="color: whitesmoke; font-weight: bold; font-size: 1.5rem;">
+                        Login</h5>
                     <form name="formLogin" [formGroup]="reactiveForm" (ngSubmit)="accedi()">
                         <div class="mb-3">
                             <label for="utente" class="form-label"
-                                [ngClass]="{'is-invalid': reactiveForm.controls['utente'].errors}">Utente</label>
+                                [ngClass]="{'is-invalid': reactiveForm.controls['utente'].errors}"
+                                style="color: whitesmoke; font-weight: bold; font-size: 1.2rem;">Utente</label>
                             <input type="text" name="utente" id="utente" formControlName="utente" class="form-control"
-                                [ngClass]="{'is-invalid': reactiveForm.controls['utente'].errors}">
+                                [ngClass]="{'is-invalid': reactiveForm.controls['utente'].errors}"
+                                style="color: black; font-weight: bold; font-size: 1.2rem;">
                             <div *ngIf="reactiveForm.controls['utente'].errors" class="invalid-feedback">
                                 Please provide a valid username.
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label"
-                                [ngClass]="{'is-invalid': reactiveForm.controls['password'].errors}">Password</label>
+                                [ngClass]="{'is-invalid': reactiveForm.controls['password'].errors}"
+                                style="color: whitesmoke; font-weight: bold; font-size: 1.2rem;">Password</label>
                             <div class="input-group">
                                 <input type="password" name="password" id="password" formControlName="password"
                                     class="form-control"
                                     [ngClass]="{'is-invalid': reactiveForm.controls['password'].errors}"
-                                    [type]="passwordVisible ? 'text' : 'password'">
+                                    [type]="passwordVisible ? 'text' : 'password'"
+                                    style="color: black; font-weight: bold; font-size: 1.2rem;">
                                 <span class="input-group-text" (click)="togglePasswordVisibility()"
                                     style="cursor: pointer;">
                                     <i class="fa" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
@@ -34,7 +39,8 @@
                         <div *ngIf="errorMessage" class="alert alert-danger">
                             {{ errorMessage }}
                         </div>
-                        <button type="submit" class="btn btn-primary w-100" [disabled]="!reactiveForm.valid">
+                        <button type="submit" class="btn custom-btn w-100" [disabled]="!reactiveForm.valid"
+                            style="font-size: 1.2rem;">
                             Accedi
                             <div class="spinner-border text-light" role="status" *ngIf="stoControllando">
                                 <span class="visually-hidden">Loading...</span>

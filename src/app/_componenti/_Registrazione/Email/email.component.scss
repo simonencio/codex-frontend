@@ -1,20 +1,79 @@
-.btn {
-    margin-top: 10px;
-    /* Adds space above the button */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    padding: 20px;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    /* Button background color */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* Remove default border */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-weight: bold;
+    /* Make the font bold */
+    font-size: 1.2rem;
+    /* Increase button text size */
 }
 
 .form-label {
+    color: whitesmoke;
+    /* Set label text color */
     font-weight: bold;
-    font-size: 20px;
+    /* Make text bold */
+    font-size: 1.2rem;
+    /* Increase font size */
 }
 
-@media (max-width: 576px) {
-    .container {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+input {
+    color: whitesmoke;
+    /* Set input text color */
+    font-weight: bold;
+    /* Make text bold */
+    font-size: 1.2rem;
+    /* Increase input text size */
+}
 
-    form {
-        padding: 20px;
-    }
+label.is-invalid {
+    color: #ff0000;
+    /* Color for invalid labels */
+}
+
+input.is-invalid {
+    color: #ff0000;
+    /* Color for invalid input text */
+    border-color: #ff0000;
+    /* Border color for invalid input */
+}
+
+.text-danger small {
+    color: #ff0000;
+    /* Color for error messages */
+    font-size: 1rem;
+    /* Font size for error messages */
+}
+
+.custom-margin {
+    margin-top: 200px;
+    /* Adjust this value as needed */
+}
+
+/* Additional styles for text color and boldness */
+.card-body,
+.form-label,
+.form-control {
+    color: whitesmoke;
+    /* Set text color */
+    font-weight: bold;
+    /* Make text bold */
+    font-size: 1.2rem;
+    /* Increase font size */
 }

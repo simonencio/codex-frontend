@@ -28,7 +28,8 @@ export class SerieTvComponent implements OnInit {
   pathFile: string = "http://localhost/finale/codex/storage/app/public/";
   pathSerie: string = "serieTv/";
   pathEpisodi: string = "Episodi/";
-
+  uniqueSeasons: number[] = [];
+  filteredEpisodi: Episodi[] = [];
   constructor(private api: ApiService) {
     this.elencoSerie$ = this.api.getSerieTv().pipe(
       takeUntil(this.distruggi$),
@@ -101,13 +102,29 @@ export class SerieTvComponent implements OnInit {
 
   openEpisodesModal(serie: SerieTv): void {
     this.selectedEpisodi = this.datiEpisodi.filter(episodio => episodio.idSerieTv === serie.idSerieTv);
+
+    // Generate an array of seasons from 1 to totaleStagioni
+    const totalSeasons = serie.totaleStagioni || 0; // Default to 0 if null
+    this.uniqueSeasons = Array.from({ length: totalSeasons }, (_, i) => i + 1); // Create an array [1, 2, ..., totalSeasons]
+
+    this.filteredEpisodi = this.selectedEpisodi; // Initialize filtered episodes
+
     const modalElement = document.getElementById('episodesModal');
     if (modalElement) {
       const modal = new bootstrap.Modal(modalElement);
       modal.show();
     }
   }
+  onSeasonChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const selectedSeason = target.value ? +target.value : null; // Convert to number or null
 
+    if (selectedSeason) {
+      this.filteredEpisodi = this.selectedEpisodi.filter(episodio => episodio.numeroStagione === selectedSeason);
+    } else {
+      this.filteredEpisodi = this.selectedEpisodi; // Reset to all episodes if no season is selected
+    }
+  }
   openFullscreenEpisodi(episodio: Episodi): void {
     this.currentEpisodio = episodio; // Set the current episode
     const videoElement = document.createElement('video');

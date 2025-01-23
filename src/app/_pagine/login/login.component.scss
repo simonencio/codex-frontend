@@ -7,7 +7,21 @@ body {
 .parent-container {
     height: 100%;
     padding: 20px;
-    /* Add some padding for smaller screens */
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    /* Button background color */
+    color: black;
+    /* Default text color */
+    border: none;
+    /* Remove default border */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+    font-weight: bold;
+    /* Make the font bold */
+    font-size: 1.2rem;
+    /* Increase button text size */
 }
 
 .form-login {
@@ -26,4 +40,16 @@ input.is-invalid {
 .custom-margin {
     margin-top: 200px;
     /* Adjust this value as needed */
+}
+
+/* Additional styles for text color and boldness */
+.card-body,
+.form-label,
+.form-control {
+    color: whitesmoke;
+    /* Set text color */
+    font-weight: bold;
+    /* Make text bold */
+    font-size: 1.2rem;
+    /* Increase font size */
 }

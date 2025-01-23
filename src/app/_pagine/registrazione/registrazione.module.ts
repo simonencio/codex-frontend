@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResidenzaComponent } from 'src/app/_componenti/_Registrazione/residenza/residenza.component';
 import { AnagraficaComponent } from 'src/app/_componenti/_Registrazione/anagrafica/anagrafica.component';
 import { CredenzialiComponent } from 'src/app/_componenti/_Registrazione/credenziali/credenziali.component';
-import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepicker, NgbModule, NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { EmailComponent } from 'src/app/_componenti/_Registrazione/Email/email.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -27,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     NgbTypeahead,
-    HttpClientModule
+    HttpClientModule,
+    NgbDatepicker,
+    NgbModule
   ]
 })
 export class RegistrazioneModule { }

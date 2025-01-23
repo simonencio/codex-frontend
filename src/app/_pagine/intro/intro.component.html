@@ -1,0 +1,5 @@
+<div class="intro-container" *ngIf="!isLeaving" @fadeIn>
+    <img src="./assets/immagini/logocode.ico" alt="Logo" class="logo" />
+    <div class="loader"></div>
+</div>
+<div *ngIf="isLeaving" @fadeOut></div>

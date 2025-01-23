@@ -58,24 +58,34 @@
 
 .img-fluid {
     width: 100%;
-    /* Full width */
-    height: 150px;
-    /* Adjusted height for smaller screens */
-    object-fit: cover;
-    /* Ensures the image covers the area without distortion */
+    height: auto;
+    /* Change height to auto to maintain aspect ratio */
+    object-fit: contain;
+    /* Change to contain to show the entire image */
     transition: transform 0.3s ease;
-    /* Smooth transition for scaling on hover */
+}
+
+video {
+    object-fit: contain;
+    /* Change to contain to show the entire video */
+    height: auto;
+    /* Change height to auto to maintain aspect ratio */
+    width: 100%;
+    padding: 0;
+    border: none;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .position-absolute {
     position: absolute;
-    /* Positioning for the video */
     top: 0;
-    /* Align to the top */
     left: 0;
-    /* Align to the left */
     z-index: 1;
-    /* Ensure the video appears above the image */
+    width: 100%;
+    /* Ensure the video takes full width */
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
 .text-left {
@@ -83,22 +93,6 @@
     /* Align text to the left */
 }
 
-video {
-    object-fit: cover;
-    /* Ensures the video covers the area without distortion */
-    height: 150px;
-    /* Match the height of the image */
-    width: 100%;
-    /* Match the width of the image */
-    padding: 0;
-    /* Remove any default padding */
-    border: none;
-    /* Remove any default border */
-    display: block;
-    /* Ensure it behaves like a block element */
-    transition: transform 0.3s ease;
-    /* Smooth transition for scaling */
-}
 
 .custom-modal {
     background-color: #6c757d;
@@ -110,14 +104,15 @@ video {
 .custom-modal .modal-title,
 .custom-modal .modal-body p {
     color: antiquewhite;
-    font-weight: bold;
     /* Ensure text is white */
+    font-weight: bold;
+    /* Make the font bold */
 }
 
 .modal-body {
     padding-top: 5px;
+    /* Add padding to the top of the modal body */
 }
-
 
 .custom-btn {
     background-color: #ff0066;
@@ -137,10 +132,36 @@ video {
     /* Text color on hover */
 }
 
-/* Hover effect for the video */
+/* Video hover effect */
+.video-hover {
+    display: none;
+    /* Hide by default */
+}
+
 .video-hover:hover {
     transform: scale(1.1);
     /* Scale up the video on hover */
+}
+
+/* Show video on hover for larger screens */
+.video-responsive {
+    display: none;
+    /* Hide by default */
+    height: 200px;
+    /* Default height */
+    width: 100%;
+    /* Default width */
+}
+
+@media (min-width: 1024px) {
+    .video-responsive {
+        display: block;
+        /* Show on larger screens */
+        height: 300px;
+        /* Increased height for larger screens */
+        width: 100%;
+        /* Full width */
+    }
 }
 
 /* Optional: Hover effect for the image */
@@ -163,27 +184,6 @@ video {
     /* Show buttons on hover */
 }
 
-/* Add this to your component's SCSS file */
-.fullscreen-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    /* Optional: background color */
-    z-index: 9999;
-    /* Ensure it is on top */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    /* Smooth transition */
-}
-
-.fullscreen-video.show {
-    opacity: 1;
-    /* Fully visible when shown */
-}
-
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .img-fluid {
@@ -195,8 +195,6 @@ video {
         height: 150px;
         /* Match the height of the image for smaller screens */
     }
-
-
 }
 
 @media (max-width: 576px) {
@@ -209,10 +207,4 @@ video {
         height: 120px;
         /* Match the height of the image for extra small screens */
     }
-
-    // .carousel-control-prev,
-    // .carousel-control-next {
-    //     width: 10%;
-    //     /* Further adjust button width for extra small screens */
-    // }
 }

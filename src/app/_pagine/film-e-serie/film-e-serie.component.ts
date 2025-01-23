@@ -38,6 +38,8 @@ export class FilmESerieComponent implements OnInit, AfterViewInit {
   categories: Categoria[] = []; // Store categories
   selectedCategoryId: number | null = null; // Store selected category ID
   @ViewChild('filmVideo') filmVideo!: ElementRef<HTMLVideoElement>;
+  uniqueSeasons: number[] = [];
+  filteredEpisodi: Episodi[] = [];
   constructor(private api: ApiService, private router: Router) {
     // Initialize observables for series, films, and episodes
     this.elencoSerie$ = this.api.getSerieTv().pipe(
@@ -191,6 +193,13 @@ export class FilmESerieComponent implements OnInit, AfterViewInit {
 
   openEpisodesModal(serie: SerieTv): void {
     this.selectedEpisodi = this.datiEpisodi.filter(episodio => episodio.idSerieTv === serie.idSerieTv);
+
+    // Generate an array of seasons from 1 to totaleStagioni
+    const totalSeasons = serie.totaleStagioni || 0; // Default to 0 if null
+    this.uniqueSeasons = Array.from({ length: totalSeasons }, (_, i) => i + 1); // Create an array [1, 2, ..., totalSeasons]
+
+    this.filteredEpisodi = this.selectedEpisodi; // Initialize filtered episodes
+
     const modalElement = document.getElementById('episodesModal');
     if (modalElement) {
       const modal = new bootstrap.Modal(modalElement);
@@ -324,7 +333,16 @@ export class FilmESerieComponent implements OnInit, AfterViewInit {
       console.error('Film modal element not found.');
     }
   }
+  onSeasonChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const selectedSeason = target.value ? +target.value : null; // Convert to number or null
 
+    if (selectedSeason) {
+      this.filteredEpisodi = this.selectedEpisodi.filter(episodio => episodio.numeroStagione === selectedSeason);
+    } else {
+      this.filteredEpisodi = this.selectedEpisodi; // Reset to all episodes if no season is selected
+    }
+  }
   goBackToEpisodesModal(): void {
     const modalElement = document.getElementById('episodesModal');
     if (modalElement) {

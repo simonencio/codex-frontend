@@ -1,6 +1,59 @@
-.form-label {
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    padding: 20px;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    color: black;
+    border: none;
+    transition: color 0.3s;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
+}
+
+.form-label {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+input,
+select {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+label.is-invalid {
+    color: #ff0000;
+}
+
+input.is-invalid,
+select.is-invalid {
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.text-danger small {
+    color: #ff0000;
+    font-size: 1rem;
+}
+
+.custom-margin {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.row {
+    margin-bottom: 30px;
+    /* Space between rows */
 }
 
 @media (max-width: 576px) {

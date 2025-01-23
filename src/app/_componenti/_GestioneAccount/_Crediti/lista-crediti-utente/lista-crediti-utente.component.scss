@@ -57,3 +57,12 @@ table {
         }
     }
 }
+
+@media (max-width: 768px) {
+
+    /* Hide the ID Credito column */
+    .table th:nth-child(1),
+    .table td:nth-child(1) {
+        display: none;
+    }
+}

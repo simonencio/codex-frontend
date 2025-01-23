@@ -9,7 +9,6 @@
     </div>
     <h2 style="text-align: center;">Films</h2>
 
-
     <div *ngIf="filteredDatiFilm.length > 0">
         <div class="box">
             <div id="filmsCarousel" class="carousel slide mt-5 mb-5" data-bs-ride="false">
@@ -23,16 +22,16 @@
                                             alt="Locandina di {{film.idFilm}}" style="height: 150px; width: 100%;"
                                             (mouseenter)="showFilmVideo(film.idFilm)" (click)="openFilmModal(film)">
                                         <video *ngIf="currentFilmVideoId === film.idFilm"
-                                            [src]="getVideoPath(film.idFilm)" class="position-absolute video-hover"
-                                            style="height: 150px; width: 100%;" autoplay muted preload="metadata"
+                                            [src]="getVideoPath(film.idFilm)"
+                                            class="position-absolute video-hover video-responsive"
+                                            style="height: 200px; width: 100%;" autoplay muted preload="metadata"
                                             (mouseleave)="hideVideo()" (click)="openFilmModal(film)">
                                             Your browser does not support the video tag.
                                         </video>
-                                        <p class="text-left m-0 position-absolute"
-                                            style="bottom: 10px; left: 10px; color: white; padding: 5px;">
-                                            {{film.titolo}}
-                                        </p>
                                     </div>
+                                    <h2 class="text-center film-title mt-2" style="padding: 5px;">
+                                        {{film.titolo}}
+                                    </h2>
                                 </div>
                             </div>
                         </div>

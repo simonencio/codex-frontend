@@ -98,12 +98,12 @@ export class FilmComponent implements OnInit {
 
   showFilmVideo(id: number): void {
     console.log('Showing film video for ID:', id);
-    this.currentFilmVideoId = id;
+    this.currentFilmVideoId = id; // Set the current video ID to show
   }
 
   hideVideo(): void {
     console.log('Hiding video');
-    this.currentFilmVideoId = null;
+    this.currentFilmVideoId = null; // Reset the current video ID to hide
   }
 
   openFilmModal(film: Film): void {

@@ -1,11 +1,56 @@
-.btn {
-    margin-top: 10px;
-    /* Adds space above the button */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    padding: 20px;
+}
+
+.custom-btn {
+    background-color: #ff0066;
+    color: black;
+    border: none;
+    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .form-label {
+    color: whitesmoke;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.2rem;
+}
+
+input {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+label.is-invalid {
+    color: #ff0000;
+}
+
+input.is-invalid {
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+.text-danger small {
+    color: #ff0000;
+    font-size: 1rem;
+}
+
+.custom-margin {
+    margin-top: 200px;
+    margin-bottom: 50px;
+}
+
+.input-group {
+    margin-bottom: 30px;
 }
 
 @media (max-width: 576px) {

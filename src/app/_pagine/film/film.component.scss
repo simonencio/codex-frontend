@@ -5,24 +5,35 @@
 
 .img-fluid {
     width: 100%;
-    /* Full width */
-    height: 150px;
-    /* Adjusted height for smaller screens */
-    object-fit: cover;
-    /* Ensures the image covers the area without distortion */
+    height: auto;
+    /* Change height to auto to maintain aspect ratio */
+    object-fit: contain;
+    /* Change to contain to show the entire image */
     transition: transform 0.3s ease;
-    /* Smooth transition for scaling on hover */
 }
 
 .position-absolute {
     position: absolute;
-    /* Positioning for the video */
     top: 0;
-    /* Align to the top */
     left: 0;
-    /* Align to the left */
     z-index: 1;
-    /* Ensure the video appears above the image */
+    width: 100%;
+    /* Ensure the video takes full width */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+video {
+    object-fit: contain;
+    /* Change to contain to show the entire video */
+    height: auto;
+    /* Change height to auto to maintain aspect ratio */
+    width: 100%;
+    /* Match the width of the image */
+    padding: 0;
+    border: none;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .text-left {
@@ -30,22 +41,6 @@
     /* Align text to the left */
 }
 
-video {
-    object-fit: cover;
-    /* Ensures the video covers the area without distortion */
-    height: 150px;
-    /* Match the height of the image */
-    width: 100%;
-    /* Match the width of the image */
-    padding: 0;
-    /* Remove any default padding */
-    border: none;
-    /* Remove any default border */
-    display: block;
-    /* Ensure it behaves like a block element */
-    transition: transform 0.3s ease;
-    /* Smooth transition for scaling */
-}
 
 .custom-modal {
     background-color: #6c757d;
@@ -174,6 +169,23 @@ video {
     /* Hide scrollbar for WebKit browsers */
 }
 
+.text-center {
+    text-align: center;
+    /* Center text */
+}
+
+.text-left {
+    text-align: left;
+    /* Align text to the left */
+    margin-top: 5px;
+    /* Add some space above the title */
+}
+
+.film-title {
+    color: #ff0066;
+    /* Set the color for film titles */
+}
+
 .custom-dropdown {
     overflow: hidden;
     /* Hide overflow */
@@ -182,6 +194,26 @@ video {
 .fullscreen-video.show {
     opacity: 1;
     /* Fully visible when shown */
+}
+
+.video-responsive {
+    display: none;
+    /* Hide by default */
+    height: 200px;
+    /* Default height */
+    width: 100%;
+    /* Default width */
+}
+
+@media (min-width: 1024px) {
+    .video-responsive {
+        display: block;
+        /* Show on larger screens */
+        height: 400px;
+        /* Increased height for larger screens */
+        width: 100%;
+        /* Full width */
+    }
 }
 
 /* Media Queries for Mobile Responsiveness */
