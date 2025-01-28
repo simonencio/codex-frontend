@@ -6,6 +6,7 @@ import { SerieTv } from 'src/app/_type/_Admin/serieTv.type';
 import { Episodi } from 'src/app/_type/_Admin/episodi.type';
 import * as bootstrap from 'bootstrap';
 import { Categoria } from 'src/app/_type/_Admin/categorie.type';
+import { UtilityService } from 'src/app/_servizi/utility.service';
 
 @Component({
   selector: 'app-serie-tv',
@@ -25,7 +26,7 @@ export class SerieTvComponent implements OnInit {
   filteredDatiSerie: SerieTv[] = []; // Store filtered series
   categories: Categoria[] = []; // Store categories
   selectedCategoryId: number | null = null; // Store selected category ID
-  pathFile: string = "http://localhost/finale/codex/storage/app/public/";
+  pathFile: string = UtilityService.storagePath();
   pathSerie: string = "serieTv/";
   pathEpisodi: string = "Episodi/";
   uniqueSeasons: number[] = [];

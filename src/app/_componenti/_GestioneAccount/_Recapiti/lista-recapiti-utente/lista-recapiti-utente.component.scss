@@ -61,6 +61,7 @@ table {
 /* Media query to hide ID Recapito and ID Contatto columns on smaller screens */
 @media (max-width: 768px) {
 
+
     /* Hide the ID Recapito and ID Contatto columns */
     .table th:nth-child(1),
     .table td:nth-child(1),

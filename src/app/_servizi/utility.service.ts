@@ -6,7 +6,9 @@ import { jwtDecode } from "jwt-decode";
 @Injectable({ providedIn: 'root' })
 export class UtilityService {
 
-
+    static storagePath(): string {
+        return "https://www.dominionuovo.cloud/api/codex/storage/app/public/"
+    }
 
     /**
      *  FUNZIONE CHE LEGGE I DATI DAL TOKEN 

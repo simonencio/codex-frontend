@@ -1,7 +1,7 @@
 {
     "/api": {
         "target": "http://localhost/finale/codex/public/api",
-        "_target": "https://localhost/server/public/api",
+        "_target": "https://www.dominionuovo.cloud/api/codex/public/api",
         "secure": false,
         "changeOrigin": true,
         "pathRewrite": {

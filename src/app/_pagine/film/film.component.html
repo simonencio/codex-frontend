@@ -24,7 +24,7 @@
                                         <video *ngIf="currentFilmVideoId === film.idFilm"
                                             [src]="getVideoPath(film.idFilm)"
                                             class="position-absolute video-hover video-responsive"
-                                            style="height: 200px; width: 100%;" autoplay muted preload="metadata"
+                                            style="height: 180px; width: 100%;" autoplay muted preload="metadata"
                                             (mouseleave)="hideVideo()" (click)="openFilmModal(film)">
                                             Your browser does not support the video tag.
                                         </video>

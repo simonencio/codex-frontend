@@ -7,9 +7,9 @@ import { TipologiaIndirizzo } from 'src/app/_type/registrazione/tipologiaIndiriz
 import { Contatto } from 'src/app/_type/_Admin/Contatto.type'; // Import Contatto type
 
 @Component({
-  selector: 'app-lista-indirizzi-utente',
-  templateUrl: './lista-indirizzi-utente.component.html',
-  styleUrls: ['./lista-indirizzi-utente.component.scss']
+  selector: 'app-lista-Indirizzi-utente',
+  templateUrl: './lista-Indirizzi-utente.component.html',
+  styleUrls: ['./lista-Indirizzi-utente.component.scss']
 })
 export class ListaIndirizziComponent implements OnInit {
   elencoIndirizzi$: Observable<IRispostaServer>;

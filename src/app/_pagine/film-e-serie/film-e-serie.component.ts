@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Episodi } from 'src/app/_type/_Admin/episodi.type';
 import * as bootstrap from 'bootstrap';
 import { Categoria } from 'src/app/_type/_Admin/categorie.type';
+import { UtilityService } from 'src/app/_servizi/utility.service';
 
 @Component({
   selector: 'app-film-e-serie',
@@ -29,9 +30,9 @@ export class FilmESerieComponent implements OnInit, AfterViewInit {
   groupedEpisodi: any[][] = [];
   showPrevButton: boolean = false;
   currentFilm: Film | null = null;
-  pathFile: string = "http://localhost/finale/codex/storage/app/public/";
+  pathFile: string = UtilityService.storagePath();
   pathSerie: string = "serieTv/";
-  pathFilm: string = "film/";
+  pathFilm: string = "Film/";
   pathEpisodi: string = "Episodi/";
   tokenExists: boolean = false; // Add tokenExists property
   selectedEpisodi: Episodi[] = [];

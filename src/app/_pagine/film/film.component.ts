@@ -5,6 +5,7 @@ import { IRispostaServer } from '../../_interfacce/IRispostaServer.interface';
 import { Film } from 'src/app/_type/_Admin/Film.type';
 import { Categoria } from 'src/app/_type/_Admin/categorie.type';
 import * as bootstrap from 'bootstrap';
+import { UtilityService } from 'src/app/_servizi/utility.service';
 
 @Component({
   selector: 'app-film',
@@ -21,8 +22,8 @@ export class FilmComponent implements OnInit {
   currentFilmVideoId: number | null = null;
   currentFilm: Film | null = null; // Store the currently selected film
   groupedFilms: any[][] = [];
-  pathFile: string = "http://localhost/finale/codex/storage/app/public/";
-  pathFilm: string = "film/";
+  pathFile: string = UtilityService.storagePath();
+  pathFilm: string = "Film/";
   @ViewChild('filmVideo') filmVideo!: ElementRef<HTMLVideoElement>;
   constructor(private api: ApiService) {
     this.elencoFilm$ = this.api.getFilm().pipe(

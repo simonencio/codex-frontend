@@ -61,11 +61,24 @@ table {
 /* Media query to hide ID Recapito and ID Contatto columns on smaller screens */
 @media (max-width: 768px) {
 
+
     /* Hide the ID Recapito and ID Contatto columns */
     .table th:nth-child(1),
     .table td:nth-child(1),
     .table th:nth-child(2),
-    .table td:nth-child(2) {
+    .table td:nth-child(2),
+    .table th:nth-child(5),
+    .table td:nth-child(5),
+    .table th:nth-child(6),
+    .table td:nth-child(6),
+    .table th:nth-child(7),
+    .table td:nth-child(7),
+    .table th:nth-child(8),
+    .table td:nth-child(8),
+    .table th:nth-child(9),
+    .table td:nth-child(9),
+    .table th:nth-child(12),
+    .table td:nth-child(12) {
         display: none;
     }
 }
