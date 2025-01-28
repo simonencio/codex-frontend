@@ -33,7 +33,7 @@ export class EmailComponent {
       };
 
       // Check if the user exists
-      this.http.post('/api/check-user', checkPayload).subscribe(
+      this.http.post('https://www.dominionuovo.cloud/api/codex/public/api/check-user', checkPayload).subscribe(
         (response) => {
           // If the response is successful, emit the hashed email
           this.onNext.emit({

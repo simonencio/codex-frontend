@@ -28,7 +28,7 @@ export class ApiService {
   //------------------------------------------------------------------------------------------------
 
   protected calcolaRisorsa(risorsa: (string | number)[]): string {
-    const server: string = "/api"; // Adjust your server URL
+    const server: string = "/api/codex/public/api"; // Adjust your server URL
     const versione: string = "v1";
     let url = server + "/" + versione + "/";
     url = url + risorsa.join("/");
