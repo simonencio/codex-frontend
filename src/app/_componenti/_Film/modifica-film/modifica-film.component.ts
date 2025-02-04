@@ -132,6 +132,7 @@ export class ModificaFilmComponent implements OnInit, OnDestroy, OnChanges {
     this.api.uploadFilm(formData).subscribe({
       next: (uploadResponse) => {
         console.log('Files uploaded:', uploadResponse);
+        location.reload();// Optionally refresh the film list or update the UI without reloading
       },
       error: (uploadError) => {
         console.error('Error uploading files:', uploadError);

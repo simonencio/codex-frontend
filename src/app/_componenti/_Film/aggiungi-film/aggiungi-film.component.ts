@@ -94,6 +94,7 @@ export class AggiungiFilmComponent implements OnInit, OnDestroy {
             console.log('Files uploaded:', uploadResponse);
             this.dati.push(response.data); // Assuming response contains the added film
             this.resetForm(); // Reset the form fields after adding
+            location.reload();
           },
           error: (uploadError) => {
             console.error('Error uploading files:', uploadError);

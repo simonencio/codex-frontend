@@ -140,6 +140,7 @@ export class ModificaSerieTvComponent implements OnInit, OnDestroy, OnChanges {
     this.api.uploadSerieTv(formData).subscribe({
       next: (uploadResponse) => {
         console.log('Files uploaded:', uploadResponse);
+        location.reload();// Optionally refresh the series list or update the UI without reloading
       },
       error: (uploadError) => {
         console.error('Error uploading files:', uploadError);

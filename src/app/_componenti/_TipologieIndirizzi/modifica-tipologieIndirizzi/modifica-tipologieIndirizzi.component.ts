@@ -73,6 +73,7 @@ export class ModificaTipologieIndirizziComponent implements OnInit, OnDestroy, O
             this.dati[index] = { ...this.dati[index], ...parametro };
           }
           this.isFormVisible = false; // Hide the form after modification
+          location.reload(); // Reload the page to refresh the address types list
         },
         error: (err) => console.error('Error modifying address type:', err) // Updated error message
       });

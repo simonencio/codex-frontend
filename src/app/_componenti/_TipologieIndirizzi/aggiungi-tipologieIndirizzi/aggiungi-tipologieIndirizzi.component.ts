@@ -57,6 +57,7 @@ export class AggiungiTipologieIndirizziComponent implements OnInit, OnDestroy {
         console.log('Tipologia Indirizzo aggiunta:', response);
         this.dati.push(response); // Assuming response contains the added address type
         this.resetForm(); // Reset the form fields after adding
+        location.reload(); // Reload the page to refresh the address types list
       },
       error: (err) => console.error('Error adding address type:', err)
     });

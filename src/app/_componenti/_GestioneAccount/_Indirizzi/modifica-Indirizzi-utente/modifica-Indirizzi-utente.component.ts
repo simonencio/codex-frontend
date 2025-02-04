@@ -125,6 +125,7 @@ export class ModificaIndirizziComponent implements OnInit, OnDestroy {
             this.dati[index] = { ...this.dati[index], ...parametro };
           }
           this.isFormVisible = false; // Hide the form after modification
+          location.reload(); // Reload the page to refresh the address list
         },
         error: (err) => console.error('Error modifying address:', err)
       });

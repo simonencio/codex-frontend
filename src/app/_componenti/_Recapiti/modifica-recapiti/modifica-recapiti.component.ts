@@ -81,6 +81,7 @@ export class ModificaRecapitiComponent implements OnInit, OnDestroy, OnChanges {
             this.recapiti[index] = { ...this.recapiti[index], ...parametro };
           }
           this.isFormVisible = false; // Hide the form after modification
+          location.reload(); // Reload the page to refresh the recapiti list
         },
         error: (err) => console.error('Error modifying recapito:', err) // Updated error message
       });

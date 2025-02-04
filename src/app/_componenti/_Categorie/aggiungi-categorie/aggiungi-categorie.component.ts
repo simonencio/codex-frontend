@@ -56,6 +56,7 @@ export class AggiungiCategorieComponent implements OnInit, OnDestroy {
         console.log('Categoria aggiunta:', response);
         this.dati.push(response); // Assuming response contains the added category
         this.resetForm(); // Reset the form fields after adding
+        location.reload(); // Reload the page to refresh the categories list
       },
       error: (err) => console.error('Error adding category:', err)
     });

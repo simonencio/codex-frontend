@@ -155,6 +155,7 @@ export class AggiungiIndirizziComponent implements OnInit, OnDestroy {
         // this.resetForm(); // Commented out to keep the form values
         // Optionally, you can clear specific fields if needed
         // this.registrationForm.get('idContatto')?.setValue(null); // Example of clearing a specific field
+        location.reload(); // Reload the page to refresh the address list
       },
       error: (err) => console.error('Error adding address:', err)
     });
