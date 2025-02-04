@@ -68,7 +68,6 @@ export class AggiungiRecapitiComponent implements OnInit, OnDestroy {
         console.log('Recapito aggiunto:', response);
         this.dati.push(response); // Assuming response contains the added recapito
         this.resetForm(); // Reset the form fields after adding
-        location.reload(); // Reload the page to refresh the recapiti list
       },
       error: (err) => console.error('Error adding recapito:', err)
     });

@@ -143,7 +143,6 @@ export class ModificaEpisodiComponent implements OnInit, OnDestroy, OnChanges {
     this.api.uploadEpisodi(formData).subscribe({
       next: (uploadResponse) => {
         console.log('File uploaded:', uploadResponse);
-        // Optionally refresh the episode list or update the UI without reloading
       },
       error: (uploadError) => {
         console.error('Error uploading file:', uploadError);

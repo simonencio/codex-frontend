@@ -73,7 +73,6 @@ export class ModificaProfiliComponent implements OnInit, OnDestroy, OnChanges {
             this.dati[index] = { ...this.dati[index], ...parametro };
           }
           this.isFormVisible = false; // Hide the form after modification
-          location.reload(); // Reload the page to refresh the profiles list
         },
         error: (err) => console.error('Error modifying profile:', err) // Updated error message
       });

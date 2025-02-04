@@ -62,7 +62,6 @@ export class AggiungiCreditoComponent implements OnInit, OnDestroy {
         console.log('Credito aggiunto:', response);
         this.dati.push(response); // Assuming response contains the added credit
         this.resetForm(); // Reset the form fields after adding
-        location.reload(); // Reload the page to refresh the credits list
       },
       error: (err) => console.error('Error adding credit:', err)
     });

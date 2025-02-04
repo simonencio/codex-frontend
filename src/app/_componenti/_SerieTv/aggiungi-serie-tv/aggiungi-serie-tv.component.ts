@@ -96,7 +96,6 @@ export class AggiungiSerieTvComponent implements OnInit, OnDestroy {
             console.log('Files uploaded:', uploadResponse);
             this.dati.push(response.data); // Assuming response contains the added series
             this.resetForm(); // Reset the form fields after adding
-            location.reload(); // Reload the page to refresh the series list
           },
           error: (uploadError) => {
             console.error('Error uploading files:', uploadError);

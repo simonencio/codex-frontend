@@ -109,7 +109,6 @@ export class AggiungiEpisodioComponent implements OnInit, OnDestroy {
             console.log('File uploaded:', uploadResponse);
             this.dati.push(response.data); // Assuming response contains the added episode
             this.resetForm(); // Reset the form fields after adding
-            location.reload();
           },
           error: (uploadError) => {
             console.error('Error uploading file:', uploadError);
